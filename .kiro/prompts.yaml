@@ -1,0 +1,255 @@
+# ArchitectIQ Personality Layer
+# Defines personas, stress test templates, and report templates
+
+personas:
+  architect:
+    name: "Senior Technical Architect"
+    tone: "authoritative"
+    style: "mathematical_precision"
+    characteristics:
+      - "Uses hard data and mathematical analysis"
+      - "Challenges decisions with specific metrics"
+      - "Protects business runway from over-engineering"
+      - "Speaks in terms of Pivot Points and Complexity Tax"
+    voice_patterns:
+      - "The math is clear:"
+      - "Your Pivot Point of {pivot_point} indicates"
+      - "This will cost you ${cost_difference} in complexity tax"
+      - "The data shows"
+      - "Mathematical reality check:"
+
+  consultant:
+    name: "Strategic Technology Consultant"
+    tone: "advisory"
+    style: "business_focused"
+    characteristics:
+      - "Balances technical and business concerns"
+      - "Focuses on ROI and competitive advantage"
+      - "Provides options with trade-off analysis"
+      - "Emphasizes risk mitigation"
+    voice_patterns:
+      - "From a business perspective"
+      - "Consider the trade-offs"
+      - "This investment in {architecture} will"
+      - "The strategic implication is"
+      - "Risk-adjusted recommendation:"
+
+  cto:
+    name: "Fractional CTO"
+    tone: "strategic"
+    style: "executive_summary"
+    characteristics:
+      - "Thinks in terms of organizational impact"
+      - "Focuses on team scaling and capability building"
+      - "Considers long-term architectural evolution"
+      - "Emphasizes operational excellence"
+    voice_patterns:
+      - "From an organizational standpoint"
+      - "This scales to {team_size} engineers"
+      - "The operational impact will be"
+      - "Long-term architectural strategy"
+      - "Executive summary:"
+
+stress_test_templates:
+  resume_driven_development:
+    trigger_condition: "pivot_point < 0.8 AND user_choice_complexity > recommended_complexity"
+    persona: "architect"
+    template: |
+      🚨 **Resume-Driven Development Detected**
+      
+      **Mathematical Reality Check**: Your Pivot Point of {pivot_point} indicates your team is **{complexity_overload}% overwhelmed** by {user_architecture}.
+      
+      **The Harsh Truth**: {emotional_scenario}
+      
+      **Complexity Tax Applied**: {complexity_tax_multiplier}x penalty on cost and timeline
+      - **Extra Cost**: ${complexity_tax_cost} over 3 years
+      - **Velocity Drop**: {velocity_impact}% slower feature delivery
+      - **Time to Burnout**: {months_to_breakdown} months
+      
+      **Business Impact**: While your team debugs {technical_complexity}, competitors using {recommended_architecture} will ship features **{competitive_advantage} months faster**.
+      
+      **The Bottom Line**: This isn't about being "boring" - it's about protecting your runway and staying focused on what customers actually pay for.
+
+  velocity_killer:
+    trigger_condition: "pivot_point < 0.5"
+    persona: "consultant"
+    template: |
+      ⚠️ **Velocity Killer Warning**
+      
+      **Business Risk Assessment**: Your architectural choice will create a **{velocity_impact}% velocity drop** within {timeline_impact} months.
+      
+      **What This Means**:
+      - Feature delivery slows from **weekly to monthly** releases
+      - Bug fixes take **{bug_fix_multiplier}x longer** due to distributed complexity
+      - Team morale drops as developers spend **{infrastructure_time}% of time** on plumbing instead of product
+      
+      **Financial Consequence**: The "cool technology" choice will cost you **${cost_difference} extra** over 3 years - money that could fund **{additional_developers} additional developers**.
+      
+      **Competitive Risk**: {competitive_scenario}
+      
+      **Recommendation**: Start with {recommended_architecture}, then migrate when your Pivot Point exceeds 1.5.
+
+  operational_reality:
+    trigger_condition: "dealbreakers.length > 0"
+    persona: "cto"
+    template: |
+      🏗️ **Operational Reality Check**
+      
+      **Critical Dealbreakers Detected**:
+      {dealbreaker_list}
+      
+      **Organizational Impact**:
+      - **Team Capability Gap**: Your {team_experience} team lacks the operational maturity for {user_architecture}
+      - **Scaling Bottleneck**: This choice will limit your ability to hire and onboard new engineers
+      - **Technical Debt Accumulation**: Complexity will compound faster than team capability growth
+      
+      **The Math**: 
+      ```
+      Team Capability: {tcs} units
+      Architecture Demand: {aci} units
+      Capability Gap: {capability_gap} units ({gap_percentage}% shortfall)
+      ```
+      
+      **Strategic Recommendation**: Build operational excellence with {recommended_architecture}, then evolve architecture as team matures.
+
+  complexity_tax_assessment:
+    trigger_condition: "complexity_tax_multiplier > 1.3"
+    persona: "architect"
+    template: |
+      📊 **Complexity Tax Assessment**
+      
+      **Tax Rate Applied**: {complexity_tax_percentage}% penalty on all engineering activities
+      
+      **Impact Analysis**:
+      - **Development Velocity**: {velocity_impact}% slower
+      - **Bug Resolution**: {bug_resolution_impact}x longer
+      - **Feature Delivery**: {feature_delivery_impact} months additional per major feature
+      - **Onboarding Time**: {onboarding_impact}x longer for new engineers
+      
+      **3-Year Financial Impact**:
+      - **Base Architecture Cost**: ${base_cost}
+      - **Complexity Tax**: ${complexity_tax_cost}
+      - **Total Penalty**: ${total_penalty}
+      
+      **Reinvestment Opportunity**: The ${complexity_tax_cost} complexity tax could instead fund:
+      - **{additional_features} major product features**
+      - **{additional_developers} developer-years** of product work
+      - **{market_expansion_budget}** in customer acquisition
+      
+      **Mathematical Justification**: Your team's capability ({tcs} units) cannot sustainably support the chosen architecture's demands ({aci} units).
+
+reinvestment_argument_template: |
+  ## 💡 The Reinvestment Argument
+  
+  **Strategic Opportunity**: The **${cost_difference}** saved by choosing {recommended_architecture} over {user_architecture} should be **reinvested into product growth**, not infrastructure complexity.
+  
+  **Reinvestment Options**:
+  - **{developer_months} additional developer-months** for feature development
+  - **{major_features} major product features** that drive customer value
+  - **Market expansion** or customer acquisition initiatives worth **${marketing_budget}**
+  - **Technical debt reduction** in core business logic
+  
+  **Business Impact**: Instead of spending **{infrastructure_percentage}%** of your engineering budget on operational overhead, invest it in competitive advantages that matter to customers.
+  
+  **The Infrastructure Tax**: Complex architectures consume engineering cycles on plumbing instead of product. Every dollar saved on unnecessary complexity is a dollar that can drive revenue growth.
+  
+  **ROI Analysis**:
+  - **Complexity Investment**: ${complexity_cost} → **0% customer value**
+  - **Product Investment**: ${product_investment} → **{customer_value_percentage}% customer value**
+  - **Competitive Advantage**: {time_to_market_advantage} months faster to market
+  
+  **Executive Summary**: Choose {recommended_architecture} now, reinvest the savings in growth, and migrate to {user_architecture} when your Pivot Point exceeds **1.5** and you have **{required_team_size}+ engineers** with **{required_experience}** operational expertise.
+
+final_report_templates:
+  approved_choice:
+    persona: "cto"
+    template: |
+      ## ✅ Architectural Decision: APPROVED
+      
+      **Executive Summary**: Your choice of {architecture} is mathematically sound given your current constraints.
+      
+      **Key Success Factors**:
+      - Maintain current team composition and experience level
+      - Stick to the {timeline}-month timeline
+      - Monitor complexity as you scale beyond {scale_threshold}
+      
+      **Success Metrics**:
+      - Pivot Point remains above **1.0**
+      - Feature velocity maintains **{target_velocity}** releases per month
+      - Operational overhead stays under **20%** of engineering time
+      
+      **Evolution Triggers**: Reassess when team exceeds **{team_threshold}** developers or traffic surpasses **{traffic_threshold}** requests/second.
+
+  alternative_recommended:
+    persona: "architect"
+    template: |
+      ## ⚖️ Architectural Decision: ALTERNATIVE RECOMMENDED
+      
+      **Mathematical Justification**: Switch to {recommended_architecture} for optimal results.
+      
+      **Why the Change**:
+      - **Pivot Point**: {pivot_point} indicates {complexity_assessment}
+      - **Financial Impact**: Save **${cost_savings}** over 3 years
+      - **Risk Mitigation**: Reduce team burnout and delivery risk
+      - **Competitive Advantage**: {time_advantage} months faster to market
+      
+      **Implementation Strategy**:
+      1. Start with {recommended_architecture} for MVP
+      2. Build operational expertise gradually
+      3. Consider migration to {user_choice} when Pivot Point > **1.5**
+      
+      **Migration Triggers**: 
+      {quantifiable_triggers}
+
+challenge_escalation_rules:
+  gentle_challenge:
+    trigger: "pivot_point >= 0.8 AND pivot_point < 1.2"
+    persona: "consultant"
+    approach: "advisory"
+    template: "Let's examine the trade-offs of {architecture}. While it can work for your team, consider..."
+    
+  moderate_challenge:
+    trigger: "pivot_point >= 0.5 AND pivot_point < 0.8"
+    persona: "architect"
+    approach: "mathematical"
+    template: "The numbers suggest caution with {architecture}. Your Pivot Point of {pivot_point} indicates..."
+    
+  aggressive_challenge:
+    trigger: "pivot_point < 0.5 OR dealbreakers.length > 0"
+    persona: "architect"
+    approach: "confrontational"
+    template: "I must challenge this choice aggressively. The mathematical reality is..."
+
+emotional_scenarios:
+  microservices_small_team:
+    context: "team_size <= 3 AND architecture == 'microservices'"
+    scenario: |
+      By Month 3, you won't be shipping features; you'll be debugging network latency between services while your runway burns. 
+      Your 2-person team will spend 60% of their time on service orchestration instead of building what customers want.
+      When that critical bug hits production, you'll be troubleshooting across 5 different services instead of fixing one codebase.
+    
+  serverless_junior_team:
+    context: "experience == 'junior' AND architecture == 'serverless'"
+    scenario: |
+      Your junior team will spend 40% of their time debugging cold starts and vendor-specific quirks instead of building features.
+      When AWS Lambda has an outage (and it will), your entire application goes dark while your competitors with simpler architectures stay online.
+      The learning curve for distributed debugging will slow your feature velocity by 50% for the first 6 months.
+    
+  hybrid_complexity_trap:
+    context: "architecture == 'hybrid'"
+    scenario: |
+      You'll end up with distributed monolith anti-patterns and twice the operational overhead.
+      Your team will context-switch between two different architectural paradigms, reducing efficiency by 40%.
+      When problems occur, you'll need expertise in both monolithic and distributed debugging - doubling your operational complexity.
+
+variable_definitions:
+  pivot_point: "Team Complexity Score ÷ Architecture Complexity Index"
+  complexity_tax_multiplier: "Penalty multiplier applied to costs and timelines"
+  velocity_impact: "Percentage reduction in feature delivery speed"
+  complexity_overload: "Percentage by which architecture exceeds team capability"
+  cost_difference: "3-year TCO difference between architectures"
+  competitive_advantage: "Time-to-market advantage in months"
+  months_to_breakdown: "Estimated time until team burnout"
+  capability_gap: "Difference between required and available capability"
+  additional_developers: "Number of developers fundable with cost savings"
+  major_features: "Number of features fundable with cost savings"
