@@ -11,6 +11,57 @@ body {
     color: #e2e8f0;
     min-height: 100vh;
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Architectural Background Elements */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        /* Circuit board patterns */
+        radial-gradient(circle at 20% 80%, rgba(96, 165, 250, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(52, 211, 153, 0.03) 0%, transparent 50%),
+        /* Architectural grid lines */
+        linear-gradient(90deg, rgba(96, 165, 250, 0.05) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(96, 165, 250, 0.05) 1px, transparent 1px),
+        /* Subtle geometric patterns */
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 100px,
+            rgba(52, 211, 153, 0.02) 100px,
+            rgba(52, 211, 153, 0.02) 101px
+        );
+    background-size: 
+        800px 800px,
+        600px 600px,
+        50px 50px,
+        50px 50px,
+        200px 200px;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Mathematical formula background */
+body::after {
+    content: 'TCS ÷ ACI = Pivot Point';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    font-size: 8rem;
+    font-weight: 100;
+    color: rgba(96, 165, 250, 0.02);
+    font-family: 'Courier New', monospace;
+    pointer-events: none;
+    z-index: -1;
+    white-space: nowrap;
 }
 
 .container {
