@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏛️ ArchitectIQ - Architecture Referee</title>
+    <link rel="stylesheet" href="architectiq-comparison.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Referee Theme -->
+        <div class="header">
+            <div class="referee-badge">
+                <div class="referee-stripes"></div>
+                <h1>🏛️ ArchitectIQ</h1>
+                <p class="referee-title">Architecture Referee</p>
+            </div>
+            <p class="tagline">"I don't pick winners. I prevent disasters through mathematical analysis."</p>
+        </div>
+
+        <!-- Mathematical Framework Display -->
+        <div class="math-framework">
+            <h2>⚖️ The Referee's Mathematical Framework</h2>
+            <div class="formula-display">
+                <div class="formula-card">
+                    <h3>Team Complexity Score (TCS)</h3>
+                    <div class="formula">TCS = TeamSize × Experience × Timeline</div>
+                </div>
+                <div class="formula-card">
+                    <h3>Architecture Complexity Index (ACI)</h3>
+                    <div class="formula">ACI = BaseComplexity × Pressure × Scale</div>
+                </div>
+                <div class="formula-card pivot-formula">
+                    <h3>Pivot Point (The Truth)</h3>
+                    <div class="formula">Pivot Point = TCS ÷ ACI</div>
+                    <div class="formula-note">< 0.5 = Mathematical Disaster</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Assessment -->
+        <div class="team-assessment">
+            <h2>🎯 Team Assessment</h2>
+            <p class="assessment-intro">Before I can referee your architectural choices, I need the facts about your team.</p>
+            
+            <div class="assessment-grid">
+                <div class="assessment-item">
+                    <label>👥 Team Size</label>
+                    <select id="teamSize">
+                        <option value="1">1 developer (Solo Act)</option>
+                        <option value="2">2 developers (Dynamic Duo)</option>
+                        <option value="3-5" selected>3-5 developers (Small Squad)</option>
+                        <option value="6-10">6-10 developers (Growing Team)</option>
+                        <option value="11-20">11-20 developers (Department)</option>
+                        <option value="20+">20+ developers (Enterprise)</option>
+                    </select>
+                </div>
+                
+                <div class="assessment-item">
+                    <label>🧠 Experience Level</label>
+                    <select id="experience">
+                        <option value="junior">Junior (Learning the ropes)</option>
+                        <option value="mixed" selected>Mixed (Some veterans, some rookies)</option>
+                        <option value="senior">Senior (Battle-tested)</option>
+                        <option value="expert">Expert (Architecture wizards)</option>
+                    </select>
+                </div>
+                
+                <div class="assessment-item">
+                    <label>⏰ Timeline Pressure</label>
+                    <select id="timeline">
+                        <option value="1">1 month (Crisis mode)</option>
+                        <option value="3">3 months (Aggressive)</option>
+                        <option value="6" selected>6 months (Balanced)</option>
+                        <option value="12">12 months (Strategic)</option>
+                        <option value="18+">18+ months (Long-term)</option>
+                    </select>
+                </div>
+                
+                <div class="assessment-item">
+                    <label>📈 Scale Ambitions</label>
+                    <select id="scale">
+                        <option value="utility">Internal Tool</option>
+                        <option value="saas" selected>SaaS Product</option>
+                        <option value="consumer">Consumer App</option>
+                        <option value="platform">Platform/Marketplace</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button id="analyzeArchitectures" class="referee-analyze-btn">
+                🔍 Referee, Analyze All Options
+            </button>
+        </div>
+
+        <!-- Referee Analysis Results -->
+        <div id="refereeAnalysis" class="referee-analysis" style="display: none;">
+            <div class="analysis-header">
+                <h2>⚖️ Referee's Mathematical Analysis</h2>
+                <div class="team-capability-score">
+                    <span class="label">Your Team's Capability Score:</span>
+                    <span class="score" id="teamCapabilityScore">2.4</span>
+                    <span class="score-note">Higher is better</span>
+                </div>
+            </div>
+
+            <!-- Referee Warnings -->
+            <div id="refereeWarnings" class="referee-warnings"></div>
+
+            <!-- Architecture Scoreboard -->
+            <div class="architecture-scoreboard">
+                <h3>🏆 Architecture Scoreboard</h3>
+                <p class="scoreboard-note">Ranked by mathematical sustainability (Pivot Point)</p>
+                
+                <div class="scoreboard-grid">
+                    <!-- Architecture cards will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- The Referee's Verdict -->
+            <div class="referee-verdict">
+                <h3>🎯 The Referee's Analysis</h3>
+                <div id="refereeVerdictContent" class="verdict-content">
+                    <!-- Dynamic verdict content -->
+                </div>
+            </div>
+
+            <!-- Mathematical Breakdown -->
+            <div class="math-breakdown">
+                <h3>📊 Mathematical Breakdown</h3>
+                <div class="breakdown-content">
+                    <div class="complexity-comparison">
+                        <h4>Architecture Complexity Requirements:</h4>
+                        <div class="complexity-bars">
+                            <div class="complexity-bar" data-arch="monolith">
+                                <span class="arch-name">🏢 Monolith</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="monolith-complexity-bar"></div>
+                                    <span class="bar-value" id="monolith-complexity-value">20</span>
+                                </div>
+                            </div>
+                            <div class="complexity-bar" data-arch="serverless">
+                                <span class="arch-name">☁️ Serverless</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="serverless-complexity-bar"></div>
+                                    <span class="bar-value" id="serverless-complexity-value">60</span>
+                                </div>
+                            </div>
+                            <div class="complexity-bar" data-arch="microservices">
+                                <span class="arch-name">🔗 Microservices</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="microservices-complexity-bar"></div>
+                                    <span class="bar-value" id="microservices-complexity-value">80</span>
+                                </div>
+                            </div>
+                            <div class="complexity-bar" data-arch="hybrid">
+                                <span class="arch-name">🔄 Hybrid</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="hybrid-complexity-bar"></div>
+                                    <span class="bar-value" id="hybrid-complexity-value">65</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-capability-line">
+                            <span class="capability-label">Your Team Capability</span>
+                            <div class="capability-indicator" id="teamCapabilityIndicator"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Impact Calculator -->
+            <div class="business-impact">
+                <h3>💰 Business Impact Calculator</h3>
+                <div class="impact-grid" id="businessImpactGrid">
+                    <!-- Dynamic business impact content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="architectiq-comparison.js"></script>
+</body>
+</html>
