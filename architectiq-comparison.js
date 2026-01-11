@@ -115,11 +115,56 @@ class ArchitectIQReferee {
             'utility': 0.8, 'saas': 1.0, 'consumer': 1.3, 'platform': 1.6
         };
 
+        // NEW: Workload Suitability Factor (WSF)
+        const workloadSuitabilityFactor = this.calculateWSF(architecture);
+
         const base = baseComplexity[architecture] || 20;
         const pressure = timelinePressure[this.teamProfile.timeline] || 1.0;
         const scale = scaleMultiplier[this.teamProfile.scale] || 1.0;
+        const wsf = workloadSuitabilityFactor;
 
-        return base * pressure * scale;
+        return base * pressure * scale * wsf;
+    }
+
+    calculateWSF(architecture) {
+        // Infer workload type from Scale Ambitions
+        const workloadType = this.inferWorkloadType();
+        
+        // WSF multipliers per workload type and architecture
+        const wsfMultipliers = {
+            'steady': {
+                'monolith': 0.8,
+                'serverless': 1.2,
+                'microservices': 1.1,
+                'hybrid': 1.0
+            },
+            'mixed': {
+                'monolith': 1.0,
+                'serverless': 1.0,
+                'microservices': 1.0,
+                'hybrid': 1.0
+            },
+            'bursty': {
+                'monolith': 1.2,
+                'serverless': 0.6,
+                'microservices': 0.9,
+                'hybrid': 1.1
+            }
+        };
+
+        return wsfMultipliers[workloadType][architecture] || 1.0;
+    }
+
+    inferWorkloadType() {
+        // Map Scale Ambitions to workload patterns
+        const workloadMapping = {
+            'utility': 'steady',    // Enterprise Utility → Steady workload
+            'saas': 'mixed',        // SaaS Product → Mixed workload  
+            'consumer': 'bursty',   // Consumer App → Bursty / Event-driven workload
+            'platform': 'mixed'    // Platform/Marketplace → Mixed workload
+        };
+
+        return workloadMapping[this.teamProfile.scale] || 'mixed';
     }
 
     calculateCost(architecture, pivotPoint) {

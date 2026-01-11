@@ -37,10 +37,13 @@ export default function handler(req, res) {
     const timelineFactor = timeline >= 12 ? 1.2 : timeline >= 6 ? 1.0 : 0.8;
     const tcs = teamSize * experienceMultiplier * timelineFactor;
 
-    // Calculate Architecture Complexity Index (ACI)
+    // Calculate Workload Suitability Factor (WSF)
+    const workloadSuitabilityFactor = calculateWSF(architecture, scale);
+
+    // Calculate Architecture Complexity Index (ACI) with WSF
     const timelinePressure = timeline < 3 ? 1.5 : timeline < 6 ? 1.2 : 1.0;
     const scaleMultiplier = scale > 10000 ? 1.5 : scale > 1000 ? 1.2 : 1.0;
-    const aci = baseComplexity[architecture] * timelinePressure * scaleMultiplier;
+    const aci = baseComplexity[architecture] * timelinePressure * scaleMultiplier * workloadSuitabilityFactor;
 
     // Calculate Pivot Point
     const pivotPoint = tcs / aci;
@@ -103,7 +106,8 @@ export default function handler(req, res) {
         timelineFactor,
         timelinePressure,
         scaleMultiplier,
-        baseComplexity: baseComplexity[architecture]
+        baseComplexity: baseComplexity[architecture],
+        workloadSuitabilityFactor
       }
     });
 
@@ -111,4 +115,47 @@ export default function handler(req, res) {
     console.error('Calculation error:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
+}
+
+// Helper function to calculate Workload Suitability Factor (WSF)
+function calculateWSF(architecture, scale) {
+  // Infer workload type from Scale Ambitions
+  const workloadType = inferWorkloadType(scale);
+  
+  // WSF multipliers per workload type and architecture
+  const wsfMultipliers = {
+    'steady': {
+      'monolith': 0.8,
+      'serverless': 1.2,
+      'microservices': 1.1,
+      'hybrid': 1.0
+    },
+    'mixed': {
+      'monolith': 1.0,
+      'serverless': 1.0,
+      'microservices': 1.0,
+      'hybrid': 1.0
+    },
+    'bursty': {
+      'monolith': 1.2,
+      'serverless': 0.6,
+      'microservices': 0.9,
+      'hybrid': 1.1
+    }
+  };
+
+  return wsfMultipliers[workloadType][architecture] || 1.0;
+}
+
+// Helper function to infer workload type from scale ambitions
+function inferWorkloadType(scale) {
+  // Map Scale Ambitions to workload patterns
+  const workloadMapping = {
+    'utility': 'steady',    // Enterprise Utility → Steady workload
+    'saas': 'mixed',        // SaaS Product → Mixed workload  
+    'consumer': 'bursty',   // Consumer App → Bursty / Event-driven workload
+    'platform': 'mixed'    // Platform/Marketplace → Mixed workload
+  };
+
+  return workloadMapping[scale] || 'mixed';
 }
