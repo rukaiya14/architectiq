@@ -40,13 +40,19 @@ export default function handler(req, res) {
     // Calculate Workload Suitability Factor (WSF)
     const workloadSuitabilityFactor = calculateWSF(architecture, scale);
 
+    // Calculate Context Normalization Factor (CNF)
+    const contextNormalizationFactor = calculateCNF(scale);
+
     // Calculate Architecture Complexity Index (ACI) with WSF
     const timelinePressure = timeline < 3 ? 1.5 : timeline < 6 ? 1.2 : 1.0;
     const scaleMultiplier = scale > 10000 ? 1.5 : scale > 1000 ? 1.2 : 1.0;
     const aci = baseComplexity[architecture] * timelinePressure * scaleMultiplier * workloadSuitabilityFactor;
 
-    // Calculate Pivot Point
-    const pivotPoint = tcs / aci;
+    // Calculate Raw Pivot Point
+    const rawPivotPoint = tcs / aci;
+    
+    // Apply Context Normalization Factor equally to all architectures
+    const pivotPoint = rawPivotPoint * contextNormalizationFactor;
 
     // Determine risk level and persona
     let riskLevel, persona, complexityTax;
@@ -95,7 +101,9 @@ export default function handler(req, res) {
     res.status(200).json({
       tcs: Math.round(tcs * 100) / 100,
       aci: Math.round(aci * 100) / 100,
+      rawPivotPoint: Math.round(rawPivotPoint * 100) / 100,
       pivotPoint: Math.round(pivotPoint * 100) / 100,
+      cnf: contextNormalizationFactor,
       riskLevel,
       persona,
       complexityTax,
@@ -107,7 +115,8 @@ export default function handler(req, res) {
         timelinePressure,
         scaleMultiplier,
         baseComplexity: baseComplexity[architecture],
-        workloadSuitabilityFactor
+        workloadSuitabilityFactor,
+        contextNormalizationFactor
       }
     });
 
@@ -158,4 +167,18 @@ function inferWorkloadType(scale) {
   };
 
   return workloadMapping[scale] || 'mixed';
+}
+
+// Helper function to calculate Context Normalization Factor (CNF)
+function calculateCNF(scale) {
+  // Context Normalization Factor (CNF) based ONLY on Scale Ambitions
+  // Applied equally to ALL architectures to fix Pivot Point scaling
+  const cnfMapping = {
+    'utility': 3.0,    // Enterprise Utility (steady workload) → 3.0x
+    'saas': 5.0,       // SaaS Product (mixed workload) → 5.0x
+    'consumer': 8.0,   // Consumer App (bursty workload) → 8.0x
+    'platform': 6.0   // Platform/Marketplace (mixed workload) → 6.0x
+  };
+
+  return cnfMapping[scale] || 5.0;
 }

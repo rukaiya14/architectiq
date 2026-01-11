@@ -6,366 +6,294 @@
     "hybrid": 65
   },
   
-  "weighted_factors": {
-    "team_size": 0.30,
-    "experience_level": 0.25,
-    "timeline_pressure": 0.25,
-    "scale_requirements": 0.20
+  "team_complexity_multipliers": {
+    "experience": {
+      "junior": 0.5,
+      "mixed": 0.75,
+      "senior": 1.0,
+      "expert": 1.5
+    },
+    "timeline_factor": {
+      "1": 0.6,
+      "3": 0.8,
+      "6": 1.0,
+      "12": 1.2,
+      "18+": 1.4
+    },
+    "team_size_mapping": {
+      "1": 1,
+      "2": 2,
+      "3-5": 4,
+      "6-10": 8,
+      "11-20": 15,
+      "20+": 25
+    }
   },
   
-  "scale_breakpoints": {
-    "monolith": {
-      "max_team_size": 8,
-      "max_requests_per_second": 1000,
-      "max_deployments_per_week": 5,
-      "max_services": 1,
-      "traffic_trigger": 1000,
-      "complexity_ceiling": 50,
-      "operational_overhead_percent": 10,
-      "suitable_for": ["utility", "saas_small"],
-      "migration_triggers": {
-        "team_growth": "8+ developers",
-        "traffic_growth": "1K+ requests/second sustained",
-        "deployment_frequency": "Daily deployments needed",
-        "service_boundaries": "Clear domain separation required"
-      }
+  "architecture_complexity_multipliers": {
+    "timeline_pressure": {
+      "1": 2.0,
+      "3": 1.5,
+      "6": 1.0,
+      "12": 0.8,
+      "18+": 0.6
     },
-    
-    "serverless": {
-      "min_team_size": 2,
-      "max_team_size": 15,
-      "max_requests_per_second": 10000,
-      "max_deployments_per_day": 50,
-      "max_functions": 100,
-      "traffic_trigger": 500,
-      "complexity_ceiling": 80,
-      "operational_overhead_percent": 20,
-      "cold_start_tolerance": "high",
-      "vendor_lock_in_acceptance": "medium",
-      "suitable_for": ["saas", "consumer_variable_load"],
-      "migration_triggers": {
-        "cold_start_issues": "Response time SLA < 200ms",
-        "vendor_limitations": "Multi-cloud requirement",
-        "cost_optimization": "Predictable high load",
-        "debugging_complexity": "Complex distributed tracing needed"
-      }
+    "scale_multiplier": {
+      "utility": 0.8,
+      "saas": 1.0,
+      "consumer": 1.3,
+      "platform": 1.6
+    }
+  },
+  
+  "workload_suitability_factor": {
+    "workload_mapping": {
+      "utility": "steady",
+      "saas": "mixed",
+      "consumer": "bursty",
+      "platform": "mixed"
     },
-    
-    "microservices": {
-      "min_team_size": 6,
-      "optimal_team_size": 15,
-      "max_requests_per_second": 100000,
-      "max_deployments_per_day": 100,
-      "max_services": 50,
-      "traffic_trigger": 5000,
-      "complexity_ceiling": 120,
-      "operational_overhead_percent": 40,
-      "devops_engineers_required": 2,
-      "monitoring_complexity": "high",
-      "suitable_for": ["platform", "consumer_high_scale", "enterprise"],
-      "migration_triggers": {
-        "team_scaling": "15+ engineers across multiple domains",
-        "independent_deployments": "Multiple teams need autonomous releases",
-        "technology_diversity": "Different tech stacks per domain",
-        "fault_isolation": "Service-level SLA requirements"
-      }
-    },
-    
-    "hybrid": {
-      "min_team_size": 4,
-      "max_team_size": 25,
-      "max_requests_per_second": 50000,
-      "max_deployments_per_day": 20,
-      "traffic_trigger": 2000,
-      "complexity_ceiling": 90,
-      "operational_overhead_percent": 30,
-      "architecture_expertise_required": "high",
-      "suitable_for": ["legacy_modernization", "gradual_migration"],
-      "migration_triggers": {
-        "legacy_constraints": "Existing monolith with new service needs",
-        "gradual_evolution": "Step-by-step modernization required",
-        "mixed_requirements": "Some services need independence, others don't",
-        "risk_mitigation": "Minimize migration risk"
+    "wsf_multipliers": {
+      "steady": {
+        "monolith": 0.8,
+        "serverless": 1.2,
+        "microservices": 1.1,
+        "hybrid": 1.0
+      },
+      "mixed": {
+        "monolith": 1.0,
+        "serverless": 1.0,
+        "microservices": 1.0,
+        "hybrid": 1.0
+      },
+      "bursty": {
+        "monolith": 1.2,
+        "serverless": 0.6,
+        "microservices": 0.9,
+        "hybrid": 1.1
       }
     }
   },
   
-  "team_capability_matrix": {
-    "junior": {
-      "complexity_handling": 30,
-      "learning_curve_tolerance": "low",
-      "operational_maturity": "basic",
-      "debugging_capability": "single_system",
-      "suitable_architectures": ["monolith"],
-      "growth_timeline_months": 12
-    },
-    
-    "mixed": {
-      "complexity_handling": 60,
-      "learning_curve_tolerance": "medium",
-      "operational_maturity": "developing",
-      "debugging_capability": "moderate_distributed",
-      "suitable_architectures": ["monolith", "serverless"],
-      "growth_timeline_months": 8
-    },
-    
-    "senior": {
-      "complexity_handling": 90,
-      "learning_curve_tolerance": "high",
-      "operational_maturity": "advanced",
-      "debugging_capability": "distributed_systems",
-      "suitable_architectures": ["monolith", "serverless", "microservices", "hybrid"],
-      "growth_timeline_months": 4
-    },
-    
-    "expert": {
-      "complexity_handling": 120,
-      "learning_curve_tolerance": "very_high",
-      "operational_maturity": "expert",
-      "debugging_capability": "complex_distributed",
-      "suitable_architectures": ["microservices", "hybrid", "custom"],
-      "growth_timeline_months": 2
-    }
+  "context_normalization_factor": {
+    "utility": 3.0,
+    "saas": 5.0,
+    "consumer": 8.0,
+    "platform": 6.0
   },
   
-  "timeline_pressure_multipliers": {
-    "1_month": {
-      "complexity_multiplier": 2.0,
-      "stress_level": "crisis",
-      "recommended_architectures": ["monolith"],
-      "risk_factors": ["no_time_for_learning", "high_pressure_decisions"]
+  "selection_algorithm": {
+    "workload_suitability_bonus": {
+      "consumer": {
+        "serverless": 25,
+        "monolith": 10,
+        "microservices": 15,
+        "hybrid": 12
+      },
+      "saas": {
+        "monolith": 15,
+        "serverless": 12,
+        "microservices": 20,
+        "hybrid": 25
+      },
+      "platform": {
+        "microservices": 25,
+        "hybrid": 20,
+        "serverless": 10,
+        "monolith": 5
+      },
+      "utility": {
+        "monolith": 25,
+        "hybrid": 15,
+        "serverless": 8,
+        "microservices": 12
+      }
     },
-    
-    "3_months": {
-      "complexity_multiplier": 1.5,
-      "stress_level": "high_pressure",
-      "recommended_architectures": ["monolith", "serverless_simple"],
-      "risk_factors": ["limited_experimentation_time"]
+    "team_size_bonus": {
+      "1": {
+        "monolith": 20,
+        "serverless": 15,
+        "hybrid": 5,
+        "microservices": -20
+      },
+      "2": {
+        "monolith": 18,
+        "serverless": 12,
+        "hybrid": 8,
+        "microservices": -10
+      },
+      "3-5": {
+        "monolith": 12,
+        "serverless": 15,
+        "hybrid": 12,
+        "microservices": 5
+      },
+      "6-10": {
+        "monolith": 8,
+        "serverless": 12,
+        "hybrid": 18,
+        "microservices": 20
+      },
+      "11-20": {
+        "monolith": 5,
+        "serverless": 10,
+        "hybrid": 20,
+        "microservices": 25
+      },
+      "20+": {
+        "monolith": 0,
+        "serverless": 12,
+        "hybrid": 18,
+        "microservices": 25
+      }
     },
-    
-    "6_months": {
-      "complexity_multiplier": 1.0,
-      "stress_level": "balanced",
-      "recommended_architectures": ["monolith", "serverless", "microservices_simple"],
-      "risk_factors": ["moderate_learning_curve_acceptable"]
+    "experience_bonus": {
+      "junior": {
+        "monolith": 20,
+        "serverless": 8,
+        "hybrid": 0,
+        "microservices": -15
+      },
+      "mixed": {
+        "monolith": 15,
+        "serverless": 12,
+        "hybrid": 12,
+        "microservices": 8
+      },
+      "senior": {
+        "monolith": 8,
+        "serverless": 15,
+        "hybrid": 18,
+        "microservices": 15
+      },
+      "expert": {
+        "monolith": 5,
+        "serverless": 12,
+        "hybrid": 15,
+        "microservices": 20
+      }
     },
-    
-    "12_months": {
-      "complexity_multiplier": 0.8,
-      "stress_level": "strategic",
-      "recommended_architectures": ["all"],
-      "risk_factors": ["time_for_proper_planning"]
-    },
-    
-    "18_plus_months": {
-      "complexity_multiplier": 0.6,
-      "stress_level": "long_term_planning",
-      "recommended_architectures": ["all", "custom"],
-      "risk_factors": ["over_engineering_risk"]
+    "timeline_bonus": {
+      "1": {
+        "monolith": 20,
+        "serverless": 12,
+        "hybrid": 0,
+        "microservices": -15
+      },
+      "3": {
+        "monolith": 15,
+        "serverless": 12,
+        "hybrid": 8,
+        "microservices": 5
+      },
+      "6": {
+        "monolith": 10,
+        "serverless": 12,
+        "hybrid": 12,
+        "microservices": 10
+      },
+      "12": {
+        "monolith": 5,
+        "serverless": 8,
+        "hybrid": 15,
+        "microservices": 15
+      },
+      "18+": {
+        "monolith": 0,
+        "serverless": 8,
+        "hybrid": 12,
+        "microservices": 20
+      }
     }
   },
   
   "cost_models": {
-    "base_annual_costs": {
-      "monolith": {
-        "development": 40000,
-        "infrastructure": 12000,
-        "maintenance": 8000,
-        "monitoring": 2000,
-        "security": 3000,
-        "total": 65000
-      },
-      
-      "serverless": {
-        "development": 60000,
-        "infrastructure": 18000,
-        "maintenance": 12000,
-        "monitoring": 8000,
-        "security": 5000,
-        "vendor_costs": 15000,
-        "total": 118000
-      },
-      
-      "microservices": {
-        "development": 93333,
-        "infrastructure": 36000,
-        "maintenance": 24000,
-        "monitoring": 15000,
-        "security": 8000,
-        "service_mesh": 12000,
-        "devops_overhead": 20000,
-        "total": 208333
-      },
-      
-      "hybrid": {
-        "development": 80000,
-        "infrastructure": 28000,
-        "maintenance": 20000,
-        "monitoring": 12000,
-        "security": 6000,
-        "complexity_overhead": 15000,
-        "total": 161000
-      }
+    "base_costs": {
+      "monolith": 150000,
+      "serverless": 200000,
+      "microservices": 350000,
+      "hybrid": 280000
     },
-    
-    "scaling_cost_multipliers": {
-      "team_size": {
-        "1": 0.5,
-        "2": 0.7,
-        "3-5": 1.0,
-        "6-10": 1.3,
-        "11-20": 1.8,
-        "20+": 2.5
-      },
-      
-      "traffic_volume": {
-        "low": 1.0,
-        "medium": 1.4,
-        "high": 2.0,
-        "very_high": 3.2
-      },
-      
-      "geographic_distribution": {
-        "single_region": 1.0,
-        "multi_region": 1.6,
-        "global": 2.4
-      }
+    "base_timelines": {
+      "monolith": 3,
+      "serverless": 5,
+      "microservices": 9,
+      "hybrid": 7
+    },
+    "experience_timeline_multiplier": {
+      "junior": 1.8,
+      "mixed": 1.3,
+      "senior": 1.0,
+      "expert": 0.8
     }
   },
   
-  "risk_assessment_matrix": {
-    "dealbreaker_conditions": {
-      "microservices": {
-        "team_size_minimum": 6,
-        "experience_minimum": "mixed",
-        "timeline_minimum_months": 6,
-        "devops_capability": "required",
-        "monitoring_infrastructure": "advanced"
-      },
-      
-      "serverless": {
-        "vendor_lock_in_acceptance": "medium",
-        "cold_start_tolerance": "high",
-        "debugging_complexity_tolerance": "medium",
-        "cost_predictability_requirement": "low"
-      },
-      
-      "hybrid": {
-        "architectural_expertise": "high",
-        "complexity_management_capability": "advanced",
-        "team_coordination_maturity": "high"
-      }
+  "complexity_tax": {
+    "critical": {
+      "pivot_threshold": 0.5,
+      "cost_multiplier": 2.5,
+      "timeline_multiplier": 2.0
     },
-    
-    "risk_multipliers": {
-      "pivot_point_ranges": {
-        "critical": {
-          "range": "< 0.5",
-          "risk_multiplier": 3.0,
-          "velocity_impact": -60,
-          "burnout_risk": "high",
-          "recommended_action": "aggressive_challenge"
-        },
-        
-        "warning": {
-          "range": "0.5 - 0.8",
-          "risk_multiplier": 2.0,
-          "velocity_impact": -40,
-          "burnout_risk": "medium",
-          "recommended_action": "moderate_challenge"
-        },
-        
-        "caution": {
-          "range": "0.8 - 1.0",
-          "risk_multiplier": 1.3,
-          "velocity_impact": -20,
-          "burnout_risk": "low",
-          "recommended_action": "gentle_guidance"
-        },
-        
-        "safe": {
-          "range": "1.0 - 1.5",
-          "risk_multiplier": 1.0,
-          "velocity_impact": 0,
-          "burnout_risk": "minimal",
-          "recommended_action": "support_choice"
-        },
-        
-        "optimal": {
-          "range": "> 1.5",
-          "risk_multiplier": 0.8,
-          "velocity_impact": 10,
-          "burnout_risk": "none",
-          "recommended_action": "encourage_optimization"
-        }
-      }
+    "warning": {
+      "pivot_threshold": 0.8,
+      "cost_multiplier": 1.8,
+      "timeline_multiplier": 1.5
+    },
+    "caution": {
+      "pivot_threshold": 1.0,
+      "cost_multiplier": 1.3,
+      "timeline_multiplier": 1.2
     }
   },
   
-  "migration_pathways": {
-    "monolith_to_microservices": {
-      "phases": 3,
-      "total_duration_months": 18,
-      "estimated_cost": 400000,
-      "risk_level": "medium",
-      "success_rate": 70,
-      "prerequisites": ["domain_boundaries", "monitoring", "devops_maturity"]
+  "dealbreaker_conditions": {
+    "microservices": {
+      "min_team_size": 6,
+      "min_experience": "mixed",
+      "min_timeline_months": 6,
+      "conditions": [
+        "Team too small for microservices operational overhead",
+        "Junior team lacks microservices expertise"
+      ]
     },
-    
-    "monolith_to_serverless": {
-      "phases": 2,
-      "total_duration_months": 8,
-      "estimated_cost": 200000,
-      "risk_level": "medium",
-      "success_rate": 80,
-      "prerequisites": ["function_boundaries", "event_driven_design"]
+    "serverless": {
+      "vendor_lock_in_acceptance": "required",
+      "cold_start_tolerance": "required",
+      "conditions": [
+        "Vendor lock-in concerns",
+        "Cold start latency issues"
+      ]
     },
-    
-    "microservices_to_monolith": {
-      "phases": 2,
-      "total_duration_months": 6,
-      "estimated_cost": 150000,
-      "risk_level": "low",
-      "success_rate": 90,
-      "prerequisites": ["service_consolidation_plan", "data_migration_strategy"]
+    "hybrid": {
+      "architectural_expertise": "high",
+      "complexity_management": "advanced",
+      "conditions": [
+        "Requires expertise in multiple patterns",
+        "Architectural complexity increases over time"
+      ]
     }
   },
   
-  "competitive_benchmarks": {
-    "time_to_market": {
-      "monolith": {
-        "mvp_months": 3,
-        "feature_velocity": "high",
-        "deployment_complexity": "low"
-      },
-      
-      "serverless": {
-        "mvp_months": 4,
-        "feature_velocity": "medium",
-        "deployment_complexity": "medium"
-      },
-      
-      "microservices": {
-        "mvp_months": 8,
-        "feature_velocity": "low_initially_high_later",
-        "deployment_complexity": "high"
-      }
+  "pivot_point_interpretation": {
+    "excellent": {
+      "threshold": 1.5,
+      "label": "Mathematically Excellent",
+      "description": "Excellent team-architecture fit with room for growth"
     },
-    
-    "operational_metrics": {
-      "monitoring_complexity": {
-        "monolith": "simple",
-        "serverless": "medium",
-        "microservices": "complex",
-        "hybrid": "very_complex"
-      },
-      
-      "debugging_difficulty": {
-        "monolith": "straightforward",
-        "serverless": "vendor_dependent",
-        "microservices": "distributed_tracing_required",
-        "hybrid": "context_switching_required"
-      }
+    "good": {
+      "threshold": 1.0,
+      "label": "Sustainable Choice",
+      "description": "Sustainable choice with manageable complexity"
+    },
+    "warning": {
+      "threshold": 0.5,
+      "label": "High Complexity Tax",
+      "description": "Workable but with significant complexity tax"
+    },
+    "critical": {
+      "threshold": 0.0,
+      "label": "Mathematical Disaster",
+      "description": "Mathematical overload that will burn through your runway"
     }
   }
 }

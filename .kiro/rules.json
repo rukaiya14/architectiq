@@ -1,213 +1,279 @@
 {
-  "challengeIntensity": {
-    "passive": {
-      "threshold": 0.8,
-      "description": "User choice aligns with recommendation",
-      "tone": "supportive",
-      "escalation": false
+  "pivot_point_thresholds": {
+    "excellent": {
+      "threshold": 1.5,
+      "label": "Mathematically Excellent",
+      "action": "support_choice",
+      "tone": "encouraging"
     },
-    "moderate": {
-      "threshold": 0.5,
-      "description": "User choice has manageable complexity overhead",
-      "tone": "advisory",
-      "escalation": false
+    "good": {
+      "threshold": 1.0,
+      "label": "Sustainable Choice", 
+      "action": "support_choice",
+      "tone": "supportive"
     },
-    "aggressive": {
+    "warning": {
       "threshold": 0.5,
-      "description": "User preference significantly more complex than recommended",
-      "tone": "confrontational",
-      "escalation": true,
-      "triggers": [
-        "pivotPoint < 0.5",
-        "complexityGap > 2.0",
-        "teamExperience === 'junior' && architecture === 'microservices'",
-        "timeline <= 3 && architecture !== 'monolith'"
+      "label": "High Complexity Tax",
+      "action": "moderate_challenge",
+      "tone": "advisory"
+    },
+    "critical": {
+      "threshold": 0.0,
+      "label": "Mathematical Disaster",
+      "action": "aggressive_challenge",
+      "tone": "authoritative"
+    }
+  },
+  
+  "dealbreaker_conditions": {
+    "microservices": {
+      "team_size_minimum": 6,
+      "experience_minimum": "mixed",
+      "timeline_minimum_months": 6,
+      "conditions": [
+        {
+          "check": "teamSize < 6",
+          "message": "Team too small for microservices operational overhead",
+          "severity": "critical",
+          "impact": "80% time on infrastructure vs features"
+        },
+        {
+          "check": "experience === 'junior'",
+          "message": "Junior team lacks microservices expertise",
+          "severity": "high", 
+          "impact": "6+ months learning curve while burning runway"
+        },
+        {
+          "check": "timeline < 6",
+          "message": "Microservices incompatible with short deadlines",
+          "severity": "critical",
+          "impact": "Will miss deadline by 4-6 months"
+        }
+      ]
+    },
+    "serverless": {
+      "vendor_lock_in_acceptance": "required",
+      "cold_start_tolerance": "required",
+      "conditions": [
+        {
+          "check": "vendorLockIn === 'unacceptable'",
+          "message": "Vendor lock-in concerns",
+          "severity": "medium",
+          "impact": "Migration costs 3x higher than traditional architectures"
+        },
+        {
+          "check": "coldStartSensitive === true",
+          "message": "Cold start latency issues",
+          "severity": "high",
+          "impact": "User experience degradation during traffic spikes"
+        }
+      ]
+    },
+    "hybrid": {
+      "architectural_expertise": "high",
+      "complexity_management": "advanced",
+      "conditions": [
+        {
+          "check": "teamSize < 4",
+          "message": "Requires expertise in multiple patterns",
+          "severity": "medium",
+          "impact": "Team becomes jack-of-all-trades, master of none"
+        },
+        {
+          "check": "operationalMaturity < 0.7",
+          "message": "Architectural complexity increases over time",
+          "severity": "high",
+          "impact": "Debugging nightmare across different architectural styles"
+        }
       ]
     }
   },
-  "dealbreakers": {
-    "microservices": [
-      {
-        "condition": "teamSize < 3",
-        "severity": "critical",
-        "message": "Microservices require minimum 3 developers for sustainable operations",
-        "impact": "Team will spend 80% of time on infrastructure instead of features"
-      },
-      {
-        "condition": "experience === 'junior'",
-        "severity": "high",
-        "message": "Junior teams lack operational expertise for distributed systems",
-        "impact": "6+ months learning curve while burning runway"
-      },
-      {
-        "condition": "timeline <= 3",
-        "severity": "critical",
-        "message": "Microservices incompatible with 3-month or shorter deadlines",
-        "impact": "Will miss deadline by 4-6 months due to operational complexity"
-      },
-      {
-        "condition": "hasStatefulServices === true",
-        "severity": "high",
-        "message": "Stateful microservices create distributed data consistency nightmares",
-        "impact": "Data corruption risk and complex transaction management"
-      }
-    ],
-    "serverless": [
-      {
-        "condition": "stateful === true",
-        "severity": "critical",
-        "message": "Serverless functions are stateless by design - stateful workloads don't fit",
-        "impact": "Cold start penalties and expensive workarounds required"
-      },
-      {
-        "condition": "longRunningTasks === true",
-        "severity": "high",
-        "message": "Serverless has execution time limits (15 minutes max)",
-        "impact": "Need expensive workarounds for batch processing"
-      },
-      {
-        "condition": "vendorLockIn === 'unacceptable'",
-        "severity": "medium",
-        "message": "Serverless creates deep vendor lock-in with cloud providers",
-        "impact": "Migration costs 3x higher than traditional architectures"
-      }
-    ],
-    "hybrid": [
-      {
-        "condition": "teamSize < 8",
-        "severity": "high",
-        "message": "Hybrid architectures require expertise in multiple paradigms",
-        "impact": "Team becomes jack-of-all-trades, master of none"
-      },
-      {
-        "condition": "operationalMaturity < 0.7",
-        "severity": "critical",
-        "message": "Hybrid approaches multiply operational complexity",
-        "impact": "Debugging becomes nightmare across different architectural styles"
-      }
-    ],
-    "monolith": [
-      {
-        "condition": "teamSize > 20",
-        "severity": "medium",
-        "message": "Large teams may face coordination bottlenecks with monoliths",
-        "impact": "Deployment conflicts and merge hell with 20+ developers"
-      },
-      {
-        "condition": "scalingNeeds === 'platform' && traffic > 100000",
-        "severity": "high",
-        "message": "Platform-scale traffic may overwhelm monolithic architecture",
-        "impact": "Single point of failure for entire system"
-      }
-    ]
+  
+  "challenge_triggers": {
+    "aggressive_challenge": {
+      "conditions": [
+        "pivotPoint < 0.5",
+        "dealbreakers.length > 0",
+        "complexityGap > 30"
+      ],
+      "persona": "architect",
+      "tone": "mathematical_precision",
+      "actions": [
+        "show_mathematical_proof",
+        "display_complexity_tax",
+        "present_alternative_recommendation"
+      ]
+    },
+    "moderate_challenge": {
+      "conditions": [
+        "pivotPoint >= 0.5 && pivotPoint < 1.0",
+        "complexityTax > 1.3"
+      ],
+      "persona": "consultant", 
+      "tone": "business_focused",
+      "actions": [
+        "explain_trade_offs",
+        "show_risk_assessment",
+        "provide_monitoring_guidance"
+      ]
+    },
+    "support_choice": {
+      "conditions": [
+        "pivotPoint >= 1.0",
+        "dealbreakers.length === 0"
+      ],
+      "persona": "advisor",
+      "tone": "supportive",
+      "actions": [
+        "validate_choice",
+        "provide_implementation_guidance",
+        "suggest_success_metrics"
+      ]
+    }
   },
-  "emotionalScenarios": {
-    "resumeDrivenDevelopment": {
-      "trigger": "userChoice.complexity > recommended.complexity + 1.5",
+  
+  "complexity_tax_rules": {
+    "critical": {
+      "pivot_threshold": 0.5,
+      "cost_multiplier": 2.5,
+      "timeline_multiplier": 2.0,
+      "description": "Mathematical overload - team capability severely exceeded"
+    },
+    "warning": {
+      "pivot_threshold": 0.8,
+      "cost_multiplier": 1.8,
+      "timeline_multiplier": 1.5,
+      "description": "High complexity tax - manageable but expensive"
+    },
+    "caution": {
+      "pivot_threshold": 1.0,
+      "cost_multiplier": 1.3,
+      "timeline_multiplier": 1.2,
+      "description": "Moderate complexity tax - acceptable overhead"
+    }
+  },
+  
+  "emotional_scenarios": {
+    "resume_driven_development": {
+      "trigger": "complexArchitectureWithLowPivotPoint",
+      "title": "Resume-Driven Development Warning",
       "scenarios": {
         "microservices": {
-          "title": "Resume-Driven Development Detected",
-          "warning": "🚨 REALITY CHECK: Choosing Microservices for Resume Points",
-          "narrative": "I see you're leaning toward Microservices. Let me paint you a picture of Month 6: Your 2-person team is debugging network timeouts between services while your competitor just shipped 3 major features with their boring monolith. Your investors are asking why feature velocity dropped 70%, and you're explaining service mesh configurations instead of showing customer growth metrics.",
-          "businessImpact": {
-            "velocityDrop": "70%",
-            "timeToDebugging": "60% of engineering time",
-            "competitorAdvantage": "3-4 months ahead",
-            "investorQuestions": "Why are we building infrastructure instead of product?"
-          },
-          "mathJustification": "Your Pivot Point of {pivotPoint} means your team is {overloadPercentage}% overwhelmed. This isn't about being 'boring' - it's about protecting your runway."
+          "warning": "While your team debugs service mesh configurations, competitors using simpler architectures will ship features 4 months faster.",
+          "business_impact": {
+            "velocity_drop": "70%",
+            "debugging_time": "60% of engineering time",
+            "competitor_advantage": "3-4 months ahead"
+          }
         },
         "serverless": {
-          "title": "Serverless Complexity Trap",
-          "warning": "⚡ VENDOR LOCK-IN ALERT: The Serverless Siren Song",
-          "narrative": "Serverless sounds magical until you're debugging cold starts at 3 AM. Your 'simple' function architecture now has 47 Lambda functions, each with different timeout configurations, and your AWS bill just hit $8,000/month for a product that could run on a $200 VPS. When AWS Lambda has an outage (and it will), your entire product goes dark.",
-          "businessImpact": {
-            "velocityDrop": "45%",
-            "vendorLockIn": "95% migration cost",
-            "debuggingComplexity": "Distributed tracing nightmare",
-            "costSurprise": "10x higher than expected"
-          },
-          "mathJustification": "Cold starts will kill your user experience, and vendor lock-in will kill your negotiating power."
-        },
-        "hybrid": {
-          "title": "Worst of Both Worlds Syndrome",
-          "warning": "🔀 COMPLEXITY MULTIPLIER: Having Your Cake and Eating It Too",
-          "narrative": "Hybrid architecture is like saying 'I want all the complexity of microservices AND all the limitations of a monolith.' Your team will context-switch between architectural paradigms daily, becoming experts in none. You'll have monolith deployment bottlenecks AND microservice operational overhead.",
-          "businessImpact": {
-            "velocityDrop": "55%",
-            "contextSwitching": "Mental overhead tax",
-            "operationalBurden": "2x monitoring complexity",
-            "teamConfusion": "No clear architectural principles"
-          },
-          "mathJustification": "You're optimizing for architectural indecision, not business outcomes."
+          "warning": "Your 'simple' function architecture now has 47 Lambda functions, and your AWS bill just hit $8,000/month for a product that could run on a $200 VPS.",
+          "business_impact": {
+            "cost_surprise": "10x higher than expected",
+            "vendor_lock_in": "95% migration cost",
+            "debugging_complexity": "Distributed tracing nightmare"
+          }
         }
       }
     },
-    "velocityKiller": {
-      "trigger": "pivotPoint < 0.3",
+    "velocity_killer": {
+      "trigger": "pivotPoint < 0.5",
       "title": "Velocity Killer Warning",
-      "scenarios": {
-        "criticalOverload": {
-          "warning": "🔥 CRITICAL: Team Capability Overload Detected",
-          "narrative": "Your Pivot Point of {pivotPoint} indicates mathematical impossibility. This is like asking a junior developer to architect Netflix's infrastructure on their first day. Your team will spend the next 6 months learning instead of building, while your runway burns and competitors ship.",
-          "timeline": {
-            "month1": "Team realizes they're in over their heads",
-            "month3": "First major outage due to operational inexperience", 
-            "month6": "Team burnout, considering simpler alternatives",
-            "month9": "Emergency architecture migration while fighting fires"
-          },
-          "financialImpact": "This choice will cost you {costOverrun} extra and delay launch by {delayMonths} months."
-        }
+      "message": "Feature delivery will slow from weekly to monthly releases within 3 months.",
+      "timeline_impact": {
+        "month_1": "Team realizes they're in over their heads",
+        "month_3": "First major outage due to operational inexperience",
+        "month_6": "Team burnout, considering simpler alternatives"
       }
     },
-    "complexityTax": {
-      "trigger": "complexityTaxMultiplier > 1.5",
-      "title": "Complexity Tax Assessment",
-      "warning": "💸 COMPLEXITY TAX: Your Architecture Choice Penalty",
-      "explanation": "Every architectural decision has a 'complexity tax' - the overhead cost of maintaining that choice. Your selection incurs a {taxPercentage}% penalty on both cost and timeline.",
-      "breakdown": {
-        "operationalOverhead": "{operationalCost} annually in DevOps complexity",
-        "learningCurve": "{learningMonths} months of reduced productivity",
-        "toolingCosts": "{toolingCost} in additional monitoring and deployment tools",
-        "opportunityCost": "{opportunityCost} in features not built due to infrastructure focus"
-      },
-      "reinvestmentOpportunity": "This {taxAmount} complexity tax could instead fund {alternativeInvestment}."
+    "operational_reality_check": {
+      "trigger": "dealbreakers.length > 0",
+      "title": "Operational Reality Check",
+      "message": "Your junior team lacks the operational maturity for microservices debugging.",
+      "capability_gaps": [
+        "Distributed system debugging",
+        "Service mesh configuration",
+        "Multi-service monitoring",
+        "Cross-service transaction management"
+      ]
     }
   },
-  "escalationTriggers": {
-    "aggressiveMode": {
-      "conditions": [
-        "pivotPoint < 0.5",
-        "dealbreakers.length > 2",
-        "complexityGap > 2.0",
-        "timeline <= 3 && userChoice !== 'monolith'"
-      ],
-      "actions": [
-        "displayMathematicalProof",
-        "showEmotionalScenario",
-        "requireExplicitAcknowledgment",
-        "escalateToSeniorArchitectTone"
+  
+  "persona_guidelines": {
+    "architect": {
+      "use_when": "pivotPoint < 0.8 || dealbreakers.length > 0",
+      "tone": "mathematical_precision",
+      "key_phrases": [
+        "The math is clear:",
+        "Your Pivot Point of {X} indicates",
+        "Mathematical reality check:",
+        "This will cost you ${X} in complexity tax"
       ]
     },
-    "interventionRequired": {
-      "conditions": [
-        "pivotPoint < 0.3",
-        "criticalDealbreakers.length > 0",
-        "teamExperience === 'junior' && architectureComplexity > 60"
-      ],
-      "actions": [
-        "blockProceedButton",
-        "requireWrittenJustification",
-        "displayFullBusinessImpactAnalysis",
-        "suggestAlternativeWithMigrationPath"
+    "consultant": {
+      "use_when": "pivotPoint >= 0.8 && pivotPoint < 1.2",
+      "tone": "business_focused",
+      "key_phrases": [
+        "From a business perspective",
+        "Consider the trade-offs",
+        "Risk-adjusted recommendation:",
+        "The strategic implication is"
+      ]
+    },
+    "cto": {
+      "use_when": "organizational_impact || long_term_planning",
+      "tone": "executive_summary",
+      "key_phrases": [
+        "From an organizational standpoint",
+        "This scales to {X} engineers",
+        "Long-term architectural strategy",
+        "Executive summary:"
       ]
     }
   },
+  
+  "migration_triggers": {
+    "monolith_to_microservices": {
+      "team_size": "15+ developers",
+      "traffic": "10,000+ requests/second",
+      "deployments": "10+ daily deployments",
+      "pivot_point": "1.5 consistently"
+    },
+    "monolith_to_serverless": {
+      "workload": "event-driven",
+      "traffic_pattern": "bursty",
+      "team_size": "3-8 developers",
+      "operational_overhead": "minimize"
+    },
+    "microservices_to_monolith": {
+      "team_size": "< 6 developers",
+      "operational_burden": "too_high",
+      "debugging_complexity": "unmanageable",
+      "business_velocity": "declining"
+    }
+  },
+  
+  "success_metrics": {
+    "system_effectiveness": [
+      "Prevents over-engineering through mathematical analysis",
+      "Protects business runway with cost-benefit analysis", 
+      "Provides actionable guidance with specific triggers",
+      "Generates stakeholder-ready reports"
+    ],
+    "user_experience": [
+      "Clear mathematical justification for all recommendations",
+      "Personality-appropriate responses based on situation severity",
+      "Actionable next steps with specific implementation guidance",
+      "Future-proof strategies with evolution triggers"
+    ]
+  },
+  
   "metadata": {
-    "version": "1.0.0",
-    "lastUpdated": "2024-01-11",
-    "description": "ArchitectIQ Referee Logic - Prevents Resume-Driven Development",
+    "version": "2.0.0",
+    "last_updated": "2025-01-11",
+    "description": "ArchitectIQ Mathematical Referee - Updated for WSF and CNF implementation",
     "author": "Senior Technical Architect AI",
-    "purpose": "Mathematical and emotional guardrails for architectural decisions"
+    "purpose": "Contextual architectural recommendations with mathematical justification"
   }
 }

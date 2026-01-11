@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏛️ ArchitectIQ - Senior Technical Architect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: 
+                /* Blurred architectural diagrams */
+                radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 85% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(29, 78, 216, 0.05) 0%, transparent 50%),
+                /* Microservices pattern - scattered circles */
+                radial-gradient(circle 3px at 20% 30%, rgba(59, 130, 246, 0.3), transparent),
+                radial-gradient(circle 2px at 25% 35%, rgba(37, 99, 235, 0.2), transparent),
+                radial-gradient(circle 4px at 30% 25%, rgba(29, 78, 216, 0.25), transparent),
+                radial-gradient(circle 2px at 70% 60%, rgba(59, 130, 246, 0.2), transparent),
+                radial-gradient(circle 3px at 75% 65%, rgba(37, 99, 235, 0.3), transparent),
+                radial-gradient(circle 2px at 80% 55%, rgba(29, 78, 216, 0.2), transparent),
+                /* Monolith pattern - large central block */
+                linear-gradient(45deg, transparent 40%, rgba(59, 130, 246, 0.03) 45%, rgba(59, 130, 246, 0.05) 55%, transparent 60%),
+                /* Serverless pattern - cloud-like shapes */
+                ellipse(200px 100px) at 10% 70%, rgba(147, 197, 253, 0.08),
+                ellipse(150px 80px) at 90% 20%, rgba(147, 197, 253, 0.06),
+                ellipse(180px 90px) at 60% 80%, rgba(147, 197, 253, 0.07),
+                /* Hybrid pattern - mixed geometric shapes */
+                polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%) at 80% 30% / 60px 60px,
+                /* Blueprint grid */
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                /* Main blue gradient */
+                linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%);
+            background-size: 
+                800px 800px,
+                600px 600px, 
+                400px 400px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                300px 300px,
+                200px 100px,
+                150px 80px,
+                180px 90px,
+                60px 60px,
+                40px 40px,
+                40px 40px,
+                100% 100%;
+            background-position: 
+                0% 0%,
+                100% 100%,
+                50% 50%,
+                0 0,
+                5px 5px,
+                10px 10px,
+                15px 15px,
+                20px 20px,
+                25px 25px,
+                0 0,
+                10% 70%,
+                90% 20%,
+                60% 80%,
+                80% 30%,
+                0 0,
+                0 0,
+                0 0;
+            min-height: 100vh;
+            color: #1e293b;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                /* Additional architectural patterns */
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 98px,
+                    rgba(59, 130, 246, 0.02) 100px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 98px,
+                    rgba(59, 130, 246, 0.02) 100px
+                ),
+                /* Network connection lines (microservices) */
+                linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.1) 49%, rgba(59, 130, 246, 0.1) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(37, 99, 235, 0.08) 49%, rgba(37, 99, 235, 0.08) 51%, transparent 52%);
+            background-size: 100px 100px, 100px 100px, 200px 200px, 200px 200px;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(0.5px);
+        }
+
+        body::after {
+            content: 'TCS ÷ ACI = Pivot Point';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            font-weight: 100;
+            color: rgba(59, 130, 246, 0.03);
+            pointer-events: none;
+            z-index: -1;
+            font-family: 'Courier New', monospace;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 1;
+            margin-bottom: 1rem;
+            color: #000000;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            text-shadow: none;
+        }
+
+        .header .tagline {
+            font-size: 1rem;
+            opacity: 1;
+            font-style: italic;
+            color: #000000;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            display: inline-block;
+            text-shadow: none;
+        }
+
+        .act {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .act.active {
+            display: block;
+        }
+
+        .act-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .act-header h2 {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏛️ ArchitectIQ</h1>
+            <div class="subtitle">Senior Technical Architect</div>
+            <div class="tagline">"Under these constraints, I recommend this architecture for the following reasons..."</div>
+        </div>
+
+        <!-- Act 1: The Interrogation -->
+        <div id="act1" class="act active">
+            <div class="act-header">
+                <h2>🎭 Act I: The Interrogation</h2>
+                <p>Before I can provide architectural guidance, I need to understand your team and constraints.</p>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="teamSize">👥 Team Size</label>
+                    <select id="teamSize">
+                        <option value="1">1 developer (Solo)</option>
+                        <option value="2">2 developers (Pair)</option>
+                        <option value="3-5" selected>3-5 developers (Small Squad)</option>
+                        <option value="6-10">6-10 developers (Growing Team)</option>
+                        <option value="11-20">11-20 developers (Large Team)</option>
+                        <option value="20+">20+ developers (Enterprise)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">🎯 Experience Level</label>
+                    <select id="experience">
+                        <option value="junior">Junior (0-2 years)</option>
+                        <option value="mixed">Mixed (Some veterans, some rookies)</option>
+                        <option value="senior" selected>Senior (Battle-tested)</option>
+                        <option value="expert">Expert/Architect (5+ years)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline">⏰ Timeline Pressure</label>
+                    <select id="timeline">
+                        <option value="1">1 month (Sprint)</option>
+                        <option value="3">3 months (Quarter)</option>
+                        <option value="6">6 months (Tactical)</option>
+                        <option value="12" selected>12 months (Strategic)</option>
+                        <option value="18+">18+ months (Long-term)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="scale">📈 Scale Ambitions</label>
+                    <select id="scale">
+                        <option value="utility">Enterprise Utility</option>
+                        <option value="saas">SaaS Product</option>
+                        <option value="consumer" selected>Consumer App</option>
+                        <option value="platform">Platform/Marketplace</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="btn" onclick="proceedToAct2()">🔍 PROCEED TO STRESS TEST</button>
+        </div>
+
+        <!-- Act 2: The Stress Test -->
+        <div id="act2" class="act">
+            <div class="act-header">
+                <h2>🧪 Act II: The Stress Test</h2>
+                <p>Now I'll analyze how each architecture performs under your specific constraints.</p>
+            </div>
+
+            <div id="constraintSummary" style="background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                <!-- Dynamic constraint summary -->
+            </div>
+
+            <div id="stressResults">
+                <!-- Dynamic stress test results -->
+            </div>
+
+            <button class="btn" onclick="proceedToAct3()">⚖️ PROCEED TO ARCHITECTURAL GUIDANCE</button>
+        </div>
+
+        <!-- Act 3: The Verdict -->
+        <div id="act3" class="act">
+            <div class="act-header">
+                <h2>⚖️ Act III: Architectural Guidance</h2>
+                <p>Based on your constraints, here's my contextual recommendation.</p>
+            </div>
+
+            <div id="recommendation">
+                <!-- Dynamic recommendation -->
+            </div>
+
+            <button class="btn btn-secondary" onclick="startOver()">🔄 Analyze Different Constraints</button>
+            <button class="btn" onclick="extractReport()" style="background: linear-gradient(135deg, #059669, #047857); margin-top: 1rem;">📄 Extract Detailed Report</button>
+        </div>
+    </div>
+
+    <script>
+        console.log('Script starting...');
+
+        // Team profile data
+        let teamProfile = {
+            teamSize: '3-5',
+            experience: 'senior',
+            timeline: '12',
+            scale: 'consumer'
+        };
+
+        // Architecture data
+        const architectures = ['monolith', 'serverless', 'microservices', 'hybrid'];
+
+        // Navigation functions
+        function showAct(actNumber) {
+            console.log('showAct called with:', actNumber);
+            document.querySelectorAll('.act').forEach(act => act.classList.remove('active'));
+            document.getElementById('act' + actNumber).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            console.log('Act', actNumber, 'should now be visible');
+        }
+
+        function proceedToAct2() {
+            console.log('proceedToAct2 called');
+            try {
+                updateTeamProfile();
+                displayConstraintSummary();
+                conductStressTest();
+                showAct(2);
+            } catch (error) {
+                console.error('Error in proceedToAct2:', error);
+                alert('Error: ' + error.message);
+            }
+        }
+
+        function proceedToAct3() {
+            console.log('proceedToAct3 called');
+            try {
+                generateRecommendation();
+                showAct(3);
+            } catch (error) {
+                console.error('Error in proceedToAct3:', error);
+                alert('Error: ' + error.message);
+            }
+        }
+
+        function startOver() {
+            console.log('startOver called');
+            showAct(1);
+        }
+
+        function updateTeamProfile() {
+            teamProfile = {
+                teamSize: document.getElementById('teamSize').value,
+                experience: document.getElementById('experience').value,
+                timeline: document.getElementById('timeline').value,
+                scale: document.getElementById('scale').value
+            };
+            console.log('Team profile updated:', teamProfile);
+        }
+
+        function displayConstraintSummary() {
+            const summary = document.getElementById('constraintSummary');
+            const teamSizeText = getTeamSizeText(teamProfile.teamSize);
+            const experienceText = teamProfile.experience;
+            const timelineText = getTimelineText(teamProfile.timeline);
+            const scaleText = getScaleText(teamProfile.scale);
+
+            summary.innerHTML = `
+                <h3>📋 Your Constraints</h3>
+                <p><strong>Team:</strong> ${teamSizeText} with ${experienceText} experience</p>
+                <p><strong>Timeline:</strong> ${timelineText}</p>
+                <p><strong>Scale Ambitions:</strong> ${scaleText}</p>
+            `;
+        }
+
+        function conductStressTest() {
+            const results = calculateAllArchitectures();
+            const container = document.getElementById('stressResults');
+            
+            let html = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">';
+            architectures.forEach(arch => {
+                const result = results[arch];
+                const stressLevel = getStressLevel(result.pivotPoint);
+                
+                html += `
+                    <div style="background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 3px solid ${getStressColor(stressLevel.class)};">
+                        <h3 style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem; margin-right: 0.5rem;">${getArchIcon(arch)}</span>
+                            ${formatArchName(arch)}
+                        </h3>
+                        <div style="font-size: 1.5rem; font-weight: 700; text-align: center; margin: 1rem 0; padding: 0.5rem; border-radius: 8px; background: ${getStressBackground(stressLevel.class)}; color: ${getStressTextColor(stressLevel.class)};">
+                            Pivot Point: ${result.pivotPoint.toFixed(2)}
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 0.9rem; color: #6b7280;">Est. Cost</div>
+                                <div style="font-size: 1.2rem; font-weight: 600;">${(result.cost / 1000).toFixed(0)}K</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 0.9rem; color: #6b7280;">Timeline</div>
+                                <div style="font-size: 1.2rem; font-weight: 600;">${result.timeline}mo</div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 1rem; font-weight: 600; color: #374151;">
+                            ${stressLevel.text}
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            container.innerHTML = html;
+        }
+
+        function generateRecommendation() {
+            const results = calculateAllArchitectures();
+            const bestChoice = selectBestArchitecture(results);
+            const container = document.getElementById('recommendation');
+            
+            const constraints = getConstraintContext();
+            const pros = getArchPros(bestChoice.arch, bestChoice);
+            const cons = getArchCons(bestChoice.arch, bestChoice);
+
+            container.innerHTML = `
+                <div style="background: linear-gradient(135deg, rgba(240, 249, 255, 0.9), rgba(224, 242, 254, 0.9)); border: 2px solid rgba(14, 165, 233, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0;">
+                    <h3 style="color: #0c4a6e; margin-bottom: 1rem; display: flex; align-items: center; font-size: 1.5rem;">
+                        <span style="font-size: 2rem; margin-right: 0.5rem;">${getArchIcon(bestChoice.arch)}</span>
+                        I recommend ${formatArchName(bestChoice.arch)}
+                    </h3>
+                    
+                    <p><strong>Under your constraints:</strong> ${constraints}</p>
+                    <p><strong>Mathematical justification:</strong> Pivot Point of ${bestChoice.pivotPoint.toFixed(2)} indicates ${getSuitabilityExplanation(bestChoice.pivotPoint)}</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                        <div style="background: rgba(255, 255, 255, 0.7); padding: 1.5rem; border-radius: 12px;">
+                            <h4 style="color: #059669; margin-bottom: 1rem;">✅ Why this works for you:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                ${pros.map(pro => `<li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0;">✅</span>${pro}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.7); padding: 1.5rem; border-radius: 12px;">
+                            <h4 style="color: #dc2626; margin-bottom: 1rem;">⚠️ Trade-offs to consider:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                ${cons.map(con => `<li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0;">⚠️</span>${con}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(59, 130, 246, 0.1); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; text-align: center;">
+                        <p style="margin: 0; font-weight: 600; color: #1e40af;"><strong>Expected investment:</strong> ${(bestChoice.cost / 1000).toFixed(0)}K over ${bestChoice.timeline} months</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Mathematical calculations
+        function calculateAllArchitectures() {
+            const results = {};
+            const tcs = calculateTCS();
+            const cnf = calculateCNF();
+            
+            architectures.forEach(arch => {
+                const aci = calculateACI(arch);
+                const rawPivotPoint = tcs / aci;
+                const pivotPoint = rawPivotPoint * cnf;
+                
+                results[arch] = {
+                    tcs,
+                    aci,
+                    pivotPoint,
+                    cost: calculateCost(arch, pivotPoint),
+                    timeline: calculateTimeline(arch, pivotPoint),
+                    dealbreakers: detectDealbreakers(arch)
+                };
+            });
+
+            return results;
+        }
+
+        function calculateTCS() {
+            const teamSizeMap = { '1': 1, '2': 2, '3-5': 4, '6-10': 8, '11-20': 15, '20+': 25 };
+            const experienceMultiplier = { 'junior': 0.5, 'mixed': 0.75, 'senior': 1.0, 'expert': 1.5 };
+            const timelineFactor = { '1': 0.6, '3': 0.8, '6': 1.0, '12': 1.2, '18+': 1.4 };
+
+            const baseSize = teamSizeMap[teamProfile.teamSize] || 4;
+            const expMultiplier = experienceMultiplier[teamProfile.experience] || 0.75;
+            const timeFactor = timelineFactor[teamProfile.timeline] || 1.0;
+
+            return baseSize * expMultiplier * timeFactor;
+        }
+
+        function calculateACI(architecture) {
+            const baseComplexity = { 'monolith': 20, 'serverless': 60, 'microservices': 80, 'hybrid': 65 };
+            const timelinePressure = { '1': 2.0, '3': 1.5, '6': 1.0, '12': 0.8, '18+': 0.6 };
+            const scaleMultiplier = { 'utility': 0.8, 'saas': 1.0, 'consumer': 1.3, 'platform': 1.6 };
+
+            const wsf = calculateWSF(architecture);
+            const base = baseComplexity[architecture] || 20;
+            const pressure = timelinePressure[teamProfile.timeline] || 1.0;
+            const scale = scaleMultiplier[teamProfile.scale] || 1.0;
+
+            return base * pressure * scale * wsf;
+        }
+
+        function calculateWSF(architecture) {
+            const workloadType = inferWorkloadType();
+            const wsfMultipliers = {
+                'steady': { 'monolith': 0.8, 'serverless': 1.2, 'microservices': 1.1, 'hybrid': 1.0 },
+                'mixed': { 'monolith': 1.0, 'serverless': 1.0, 'microservices': 1.0, 'hybrid': 1.0 },
+                'bursty': { 'monolith': 1.2, 'serverless': 0.6, 'microservices': 0.9, 'hybrid': 1.1 }
+            };
+            return wsfMultipliers[workloadType][architecture] || 1.0;
+        }
+
+        function inferWorkloadType() {
+            const workloadMapping = { 'utility': 'steady', 'saas': 'mixed', 'consumer': 'bursty', 'platform': 'mixed' };
+            return workloadMapping[teamProfile.scale] || 'mixed';
+        }
+
+        function calculateCNF() {
+            const cnfMapping = { 'utility': 3.0, 'saas': 5.0, 'consumer': 8.0, 'platform': 6.0 };
+            return cnfMapping[teamProfile.scale] || 5.0;
+        }
+
+        function calculateCost(architecture, pivotPoint) {
+            const baseCosts = { 'monolith': 150000, 'serverless': 200000, 'microservices': 350000, 'hybrid': 280000 };
+            const teamSizeMultiplier = getNumericTeamSize() / 4;
+            const complexityTax = pivotPoint < 0.5 ? 2.5 : pivotPoint < 0.8 ? 1.8 : pivotPoint < 1.0 ? 1.3 : 1.0;
+            return Math.round(baseCosts[architecture] * teamSizeMultiplier * complexityTax);
+        }
+
+        function calculateTimeline(architecture, pivotPoint) {
+            const baseTimelines = { 'monolith': 3, 'serverless': 5, 'microservices': 9, 'hybrid': 7 };
+            const experienceMultiplier = { 'junior': 1.8, 'mixed': 1.3, 'senior': 1.0, 'expert': 0.8 };
+            const complexityTax = pivotPoint < 0.5 ? 2.0 : pivotPoint < 0.8 ? 1.5 : pivotPoint < 1.0 ? 1.2 : 1.0;
+            const expMultiplier = experienceMultiplier[teamProfile.experience] || 1.3;
+            return Math.round(baseTimelines[architecture] * expMultiplier * complexityTax);
+        }
+
+        function detectDealbreakers(architecture) {
+            const dealbreakers = [];
+            const teamSize = getNumericTeamSize();
+            
+            if (architecture === 'microservices') {
+                if (teamSize < 6) dealbreakers.push('Team too small for microservices operational overhead');
+                if (teamProfile.experience === 'junior') dealbreakers.push('Junior team lacks microservices expertise');
+            }
+            
+            return dealbreakers;
+        }
+
+        function selectBestArchitecture(results) {
+            // More sophisticated selection that considers context and suitability
+            const architectureScores = architectures.map(arch => {
+                const result = results[arch];
+                let score = 0;
+                
+                // Base score from Pivot Point (normalized to prevent extreme values)
+                score += Math.min(result.pivotPoint * 20, 60); // Cap at 60 points
+                
+                // Workload suitability bonus (major factor)
+                const workloadBonus = getWorkloadSuitabilityBonus(arch, teamProfile.scale);
+                score += workloadBonus;
+                
+                // Team size suitability bonus
+                const teamSizeBonus = getTeamSizeBonus(arch, teamProfile.teamSize);
+                score += teamSizeBonus;
+                
+                // Experience level bonus
+                const experienceBonus = getExperienceBonus(arch, teamProfile.experience);
+                score += experienceBonus;
+                
+                // Timeline pressure consideration
+                const timelineBonus = getTimelineBonus(arch, teamProfile.timeline);
+                score += timelineBonus;
+                
+                // Heavy penalty for dealbreakers (should disqualify)
+                if (result.dealbreakers.length > 0) {
+                    score -= 100;
+                }
+                
+                // Penalty for very low Pivot Points (mathematical disaster)
+                if (result.pivotPoint < 0.5) {
+                    score -= 50;
+                } else if (result.pivotPoint < 0.8) {
+                    score -= 20;
+                }
+                
+                // Bonus for excellent Pivot Points
+                if (result.pivotPoint > 1.5) {
+                    score += 20;
+                }
+                
+                console.log(`${arch}: Pivot=${result.pivotPoint.toFixed(2)}, Workload=${workloadBonus}, Team=${teamSizeBonus}, Exp=${experienceBonus}, Timeline=${timelineBonus}, Total=${score.toFixed(1)}`);
+                
+                return { arch, score, ...result };
+            });
+            
+            // Sort by total score
+            architectureScores.sort((a, b) => b.score - a.score);
+            console.log('Architecture scores:', architectureScores.map(a => `${a.arch}: ${a.score.toFixed(1)}`));
+            return architectureScores[0];
+        }
+
+        function getWorkloadSuitabilityBonus(arch, scale) {
+            const suitabilityMatrix = {
+                'consumer': {
+                    'serverless': 25,  // Excellent for bursty consumer apps
+                    'monolith': 10,    // Simple but not optimal for scaling
+                    'microservices': 15, // Good for scale but complex
+                    'hybrid': 12
+                },
+                'saas': {
+                    'monolith': 15,    // Good for early SaaS
+                    'serverless': 12,  // Decent for SaaS
+                    'microservices': 20, // Great for mature SaaS
+                    'hybrid': 25       // Best balance for SaaS evolution
+                },
+                'platform': {
+                    'microservices': 25, // Perfect for platforms
+                    'hybrid': 20,
+                    'serverless': 10,
+                    'monolith': 5
+                },
+                'utility': {
+                    'monolith': 25,    // Perfect for stable utilities
+                    'hybrid': 15,
+                    'serverless': 8,
+                    'microservices': 12
+                }
+            };
+            
+            return suitabilityMatrix[scale]?.[arch] || 0;
+        }
+
+        function getTeamSizeBonus(arch, teamSize) {
+            const teamSizeMatrix = {
+                '1': {
+                    'monolith': 20,
+                    'serverless': 15,
+                    'hybrid': 5,
+                    'microservices': -20
+                },
+                '2': {
+                    'monolith': 18,
+                    'serverless': 12,
+                    'hybrid': 8,
+                    'microservices': -10
+                },
+                '3-5': {
+                    'monolith': 12,
+                    'serverless': 15,
+                    'hybrid': 12,
+                    'microservices': 5
+                },
+                '6-10': {
+                    'monolith': 8,
+                    'serverless': 12,
+                    'hybrid': 18,
+                    'microservices': 20
+                },
+                '11-20': {
+                    'monolith': 5,
+                    'serverless': 10,
+                    'hybrid': 20,
+                    'microservices': 25
+                },
+                '20+': {
+                    'monolith': 0,
+                    'serverless': 12,
+                    'hybrid': 18,
+                    'microservices': 25
+                }
+            };
+            
+            return teamSizeMatrix[teamSize]?.[arch] || 0;
+        }
+
+        function getExperienceBonus(arch, experience) {
+            const experienceMatrix = {
+                'junior': {
+                    'monolith': 20,
+                    'serverless': 8,
+                    'hybrid': 0,
+                    'microservices': -15
+                },
+                'mixed': {
+                    'monolith': 15,
+                    'serverless': 12,
+                    'hybrid': 12,
+                    'microservices': 8
+                },
+                'senior': {
+                    'monolith': 8,
+                    'serverless': 15,
+                    'hybrid': 18,
+                    'microservices': 15
+                },
+                'expert': {
+                    'monolith': 5,
+                    'serverless': 12,
+                    'hybrid': 15,
+                    'microservices': 20
+                }
+            };
+            
+            return experienceMatrix[experience]?.[arch] || 0;
+        }
+
+        function getTimelineBonus(arch, timeline) {
+            const timelineMatrix = {
+                '1': {
+                    'monolith': 20,
+                    'serverless': 12,
+                    'hybrid': 0,
+                    'microservices': -15
+                },
+                '3': {
+                    'monolith': 15,
+                    'serverless': 12,
+                    'hybrid': 8,
+                    'microservices': 5
+                },
+                '6': {
+                    'monolith': 10,
+                    'serverless': 12,
+                    'hybrid': 12,
+                    'microservices': 10
+                },
+                '12': {
+                    'monolith': 5,
+                    'serverless': 8,
+                    'hybrid': 15,
+                    'microservices': 15
+                },
+                '18+': {
+                    'monolith': 0,
+                    'serverless': 8,
+                    'hybrid': 12,
+                    'microservices': 20
+                }
+            };
+            
+            return timelineMatrix[timeline]?.[arch] || 0;
+        }
+
+        // Helper functions
+        function getNumericTeamSize() {
+            const sizeMap = { '1': 1, '2': 2, '3-5': 4, '6-10': 8, '11-20': 15, '20+': 25 };
+            return sizeMap[teamProfile.teamSize] || 4;
+        }
+
+        function getTeamSizeText(size) {
+            const textMap = {
+                '1': '1 developer (Solo)', '2': '2 developers (Pair)', '3-5': '3-5 developers (Small Squad)',
+                '6-10': '6-10 developers (Growing Team)', '11-20': '11-20 developers (Large Team)', '20+': '20+ developers (Enterprise)'
+            };
+            return textMap[size] || 'Unknown team size';
+        }
+
+        function getTimelineText(timeline) {
+            const textMap = {
+                '1': '1 month (Sprint)', '3': '3 months (Quarter)', '6': '6 months (Tactical)',
+                '12': '12 months (Strategic)', '18+': '18+ months (Long-term)'
+            };
+            return textMap[timeline] || 'unknown timeline';
+        }
+
+        function getScaleText(scale) {
+            const textMap = {
+                'utility': 'Enterprise Utility', 'saas': 'SaaS Product', 'consumer': 'Consumer App', 'platform': 'Platform/Marketplace'
+            };
+            return textMap[scale] || 'unknown scale';
+        }
+
+        function getStressLevel(pivotPoint) {
+            if (pivotPoint >= 1.5) return { class: 'excellent', text: 'Mathematically Excellent' };
+            if (pivotPoint >= 1.0) return { class: 'good', text: 'Sustainable Choice' };
+            if (pivotPoint >= 0.5) return { class: 'warning', text: 'High Complexity Tax' };
+            return { class: 'critical', text: 'Mathematical Disaster' };
+        }
+
+        function getStressColor(className) {
+            const colors = { 'excellent': '#10b981', 'good': '#3b82f6', 'warning': '#f59e0b', 'critical': '#ef4444' };
+            return colors[className] || '#6b7280';
+        }
+
+        function getStressBackground(className) {
+            const backgrounds = { 'excellent': '#d1fae5', 'good': '#dbeafe', 'warning': '#fef3c7', 'critical': '#fecaca' };
+            return backgrounds[className] || '#f3f4f6';
+        }
+
+        function getStressTextColor(className) {
+            const colors = { 'excellent': '#065f46', 'good': '#1e40af', 'warning': '#92400e', 'critical': '#991b1b' };
+            return colors[className] || '#374151';
+        }
+
+        function getSuitabilityExplanation(pivotPoint) {
+            if (pivotPoint >= 1.5) return 'excellent team-architecture fit with room for growth';
+            if (pivotPoint >= 1.0) return 'sustainable choice with manageable complexity';
+            if (pivotPoint >= 0.5) return 'workable but with significant complexity tax';
+            return 'mathematical overload that will burn through your runway';
+        }
+
+        function getArchIcon(arch) {
+            const icons = { 'monolith': '🏢', 'serverless': '☁️', 'microservices': '🔗', 'hybrid': '🔄' };
+            return icons[arch] || '🏗️';
+        }
+
+        function formatArchName(arch) {
+            const names = { 'monolith': 'Monolith', 'serverless': 'Serverless', 'microservices': 'Microservices', 'hybrid': 'Hybrid' };
+            return names[arch] || arch;
+        }
+
+        function getConstraintContext() {
+            const teamSize = getTeamSizeText(teamProfile.teamSize);
+            const experience = teamProfile.experience;
+            const timeline = getTimelineText(teamProfile.timeline);
+            const scale = getScaleText(teamProfile.scale);
+            
+            return `${teamSize} with ${experience} experience, ${timeline} timeline, targeting ${scale}`;
+        }
+
+        function getArchPros(arch, result) {
+            const pros = {
+                'monolith': ['Simple deployment and debugging', 'Fast development for small teams', 'No distributed system complexity', 'Easy to understand and maintain'],
+                'serverless': ['Automatic scaling for variable loads', 'Pay-per-use cost model', 'No server management overhead', 'Great for event-driven workloads'],
+                'microservices': ['Independent team scaling', 'Technology diversity per service', 'Fault isolation between services', 'Independent deployment cycles'],
+                'hybrid': ['Balanced approach to complexity', 'Gradual migration path', 'Mix of simple and complex patterns', 'Flexibility in architectural choices']
+            };
+
+            let contextualPros = [...pros[arch]];
+            if (result.pivotPoint > 1.5) {
+                contextualPros.push('Your team has excellent capability to handle this architecture');
+            }
+            
+            return contextualPros.slice(0, 4);
+        }
+
+        function getArchCons(arch, result) {
+            const cons = {
+                'monolith': ['Scaling bottlenecks at high load', 'Single point of failure', 'Technology lock-in for entire app', 'Deployment coordination required'],
+                'serverless': ['Vendor lock-in concerns', 'Cold start latency issues', 'Complex debugging in distributed environment', 'Limited execution time per function'],
+                'microservices': ['High operational complexity', 'Network latency between services', 'Distributed system debugging challenges', 'Requires mature DevOps practices'],
+                'hybrid': ['Architectural complexity increases over time', 'Requires expertise in multiple patterns', 'Potential for inconsistent practices', 'More complex deployment pipelines']
+            };
+
+            let contextualCons = [...cons[arch]];
+            if (result.pivotPoint < 1.0) {
+                contextualCons.push(`Complexity tax of ${Math.round((1/result.pivotPoint - 1) * 100)}% applies to timeline and cost`);
+            }
+            if (result.dealbreakers.length > 0) {
+                contextualCons.push(...result.dealbreakers);
+            }
+            
+            return contextualCons.slice(0, 4);
+        }
+
+        function extractReport() {
+            const results = calculateAllArchitectures();
+            const bestChoice = selectBestArchitecture(results);
+            const timestamp = new Date().toLocaleString();
+            
+            const report = generateDetailedReport(results, bestChoice, timestamp);
+            
+            // Create and download the report
+            const blob = new Blob([report], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ArchitectIQ-Report-${new Date().toISOString().split('T')[0]}.html`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function generateDetailedReport(results, bestChoice, timestamp) {
+            const constraints = getConstraintContext();
+            const pros = getArchPros(bestChoice.arch, bestChoice);
+            const cons = getArchCons(bestChoice.arch, bestChoice);
+            
+            // Sort all architectures by Pivot Point for comparison
+            const sortedArchs = architectures
+                .map(arch => ({ arch, ...results[arch] }))
+                .sort((a, b) => b.pivotPoint - a.pivotPoint);
+
+            return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArchitectIQ - Architectural Analysis Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f8fafc;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #2563eb;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .recommendation-box {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 2px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+        .recommendation-box h3 {
+            color: #0c4a6e;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .architecture-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .arch-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .arch-card.recommended {
+            border-color: #10b981;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        }
+        .pivot-score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        .pivot-score.excellent { color: #059669; }
+        .pivot-score.good { color: #3b82f6; }
+        .pivot-score.warning { color: #f59e0b; }
+        .pivot-score.critical { color: #ef4444; }
+        .pros-cons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .pros, .cons {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .pros h4 { color: #059669; margin-top: 0; }
+        .cons h4 { color: #dc2626; margin-top: 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏛️ ArchitectIQ</h1>
+        <div>Senior Technical Architect - Detailed Analysis Report</div>
+        <div style="margin-top: 1rem; opacity: 0.8;">Generated on ${timestamp}</div>
+    </div>
+
+    <div class="section">
+        <h2>📋 Executive Summary</h2>
+        <div class="recommendation-box">
+            <h3>🎯 Recommended Architecture: ${getArchIcon(bestChoice.arch)} ${formatArchName(bestChoice.arch)}</h3>
+            <p><strong>Under your constraints:</strong> ${constraints}</p>
+            <p><strong>Mathematical justification:</strong> Pivot Point of ${bestChoice.pivotPoint.toFixed(2)} indicates ${getSuitabilityExplanation(bestChoice.pivotPoint)}</p>
+            <p><strong>Expected investment:</strong> ${(bestChoice.cost / 1000).toFixed(0)}K over ${bestChoice.timeline} months</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Team & Project Constraints</h2>
+        <p><strong>Team Size:</strong> ${getTeamSizeText(teamProfile.teamSize)}</p>
+        <p><strong>Experience Level:</strong> ${teamProfile.experience.charAt(0).toUpperCase() + teamProfile.experience.slice(1)}</p>
+        <p><strong>Timeline:</strong> ${getTimelineText(teamProfile.timeline)}</p>
+        <p><strong>Scale Ambitions:</strong> ${getScaleText(teamProfile.scale)}</p>
+        
+        <div style="background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+            <h4>Mathematical Framework</h4>
+            <div style="font-family: 'Courier New', monospace; background: #1f2937; color: #f9fafb; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0;">Team Complexity Score (TCS) = ${bestChoice.tcs.toFixed(2)}</div>
+            <div style="font-family: 'Courier New', monospace; background: #1f2937; color: #f9fafb; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0;">Architecture Complexity Index (ACI) = ${bestChoice.aci.toFixed(2)}</div>
+            <div style="font-family: 'Courier New', monospace; background: #1f2937; color: #f9fafb; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0;">Pivot Point = TCS ÷ ACI = ${bestChoice.pivotPoint.toFixed(2)}</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>⚖️ Architecture Comparison</h2>
+        <div class="architecture-comparison">
+            ${sortedArchs.map(arch => `
+                <div class="arch-card ${arch.arch === bestChoice.arch ? 'recommended' : ''}">
+                    <h4>${getArchIcon(arch.arch)} ${formatArchName(arch.arch)}</h4>
+                    <div class="pivot-score ${getStressLevel(arch.pivotPoint).class}">
+                        ${arch.pivotPoint.toFixed(2)}
+                    </div>
+                    <div>${getStressLevel(arch.pivotPoint).text}</div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.9rem; color: #6b7280;">
+                        <span>${(arch.cost / 1000).toFixed(0)}K</span>
+                        <span>${arch.timeline}mo</span>
+                    </div>
+                    ${arch.dealbreakers.length > 0 ? `<div style="color: #dc2626; font-size: 0.8rem; margin-top: 0.5rem;">⚠️ ${arch.dealbreakers.length} dealbreaker(s)</div>` : ''}
+                </div>
+            `).join('')}
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>✅ Detailed Analysis: ${formatArchName(bestChoice.arch)}</h2>
+        <div class="pros-cons-grid">
+            <div class="pros">
+                <h4>✅ Why this works for you:</h4>
+                <ul>
+                    ${pros.map(pro => `<li>${pro}</li>`).join('')}
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>⚠️ Trade-offs to consider:</h4>
+                <ul>
+                    ${cons.map(con => `<li>${con}</li>`).join('')}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📊 Risk Assessment</h2>
+        ${bestChoice.pivotPoint < 0.5 ? `
+            <div style="background: #fef2f2; border: 2px solid #ef4444; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <h4 style="color: #dc2626; margin-top: 0;">🚨 High Risk Alert</h4>
+                <p>This architecture choice presents significant risks with a Pivot Point below 0.5. Consider simpler alternatives or team capability improvements.</p>
+            </div>
+        ` : bestChoice.pivotPoint < 1.0 ? `
+            <div style="background: #fffbeb; border: 2px solid #f59e0b; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <h4 style="color: #92400e; margin-top: 0;">⚠️ Moderate Risk</h4>
+                <p>This choice is workable but will incur complexity tax. Monitor team velocity and be prepared for ${Math.round((1/bestChoice.pivotPoint - 1) * 100)}% additional overhead.</p>
+            </div>
+        ` : `
+            <div style="background: #f0fdf4; border: 2px solid #10b981; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <h4 style="color: #059669; margin-top: 0;">✅ Low Risk</h4>
+                <p>This architectural choice is mathematically sound and sustainable for your team. Proceed with confidence while maintaining good engineering practices.</p>
+            </div>
+        `}
+    </div>
+
+    <div style="text-align: center; color: #6b7280; font-size: 0.9rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e7eb;">
+        <p>This report was generated by ArchitectIQ - Senior Technical Architect</p>
+        <p>Mathematical analysis based on Team Complexity Score, Architecture Complexity Index, and Pivot Point methodology</p>
+    </div>
+</body>
+</html>`;
+        }
+
+        console.log('Script loaded successfully');
+    </script>
+</body>
+</html>
