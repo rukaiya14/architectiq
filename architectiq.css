@@ -1715,3 +1715,216 @@ body {
         font-size: 1.5rem;
     }
 }
+/* API Integration Styles */
+.api-status-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+    z-index: 1000;
+}
+
+.api-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #6b7280;
+    transition: background-color 0.3s ease;
+}
+
+.api-dealbreakers-section {
+    margin: 20px 0;
+    animation: slideIn 0.5s ease-out;
+}
+
+.dealbreaker-alert {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(239, 68, 68, 0.05));
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+}
+
+.dealbreaker-alert h4 {
+    color: #dc2626;
+    margin: 0 0 12px 0;
+    font-size: 16px;
+}
+
+.dealbreaker-item {
+    color: #dc2626;
+    margin: 8px 0;
+    padding-left: 16px;
+    font-weight: 500;
+}
+
+.api-recommendation-section {
+    margin: 20px 0;
+    animation: slideIn 0.5s ease-out;
+}
+
+.api-recommendation-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+}
+
+.api-recommendation-card h4 {
+    color: #10b981;
+    margin: 0 0 16px 0;
+    font-size: 18px;
+}
+
+.recommendation-content p {
+    margin: 8px 0;
+    color: #e5e7eb;
+}
+
+.recommendation-text {
+    background: rgba(16, 185, 129, 0.1);
+    border-left: 4px solid #10b981;
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-weight: 500;
+}
+
+.enhanced-recommendations-section {
+    margin: 24px 0;
+    animation: slideIn 0.6s ease-out;
+}
+
+.enhanced-recommendations-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.05));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px 0;
+}
+
+.enhanced-recommendations-card h4 {
+    color: #10b981;
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.enhanced-recommendations-card h5 {
+    color: #34d399;
+    margin: 20px 0 12px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+    padding-bottom: 8px;
+}
+
+.primary-recommendation {
+    background: rgba(16, 185, 129, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #d1fae5;
+    border-left: 4px solid #10b981;
+}
+
+.cost-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.cost-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cost-label {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.cost-value {
+    color: #10b981;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.timeline-section p {
+    background: rgba(59, 130, 246, 0.1);
+    border-left: 4px solid #3b82f6;
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+}
+
+.alternatives-section ul,
+.reinvestment-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+}
+
+.alternatives-section li,
+.reinvestment-section li {
+    background: rgba(0, 0, 0, 0.2);
+    margin: 8px 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 3px solid #34d399;
+    color: #e5e7eb;
+}
+
+.alternatives-section li:before,
+.reinvestment-section li:before {
+    content: "→ ";
+    color: #34d399;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+    .api-status-indicator {
+        top: 10px;
+        right: 10px;
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+    
+    .cost-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .enhanced-recommendations-card {
+        padding: 16px;
+        margin: 16px 0;
+    }
+}

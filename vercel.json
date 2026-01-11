@@ -1,7 +1,10 @@
 {
   "functions": {
-    "architectiq.html": {
-      "memory": 128
+    "api/calculate.js": {
+      "memory": 256
+    },
+    "api/recommend.js": {
+      "memory": 256
     }
   },
   "headers": [
