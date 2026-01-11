@@ -114,17 +114,6 @@ ACI = BaseComplexity × TimelinePressure × ScaleMultiplier
    - Choose your preferred architecture
    - Get mathematical analysis and recommendations
 
-### Local Development
-```bash
-# Serve locally with a simple HTTP server (optional)
-# Python 3
-python -m http.server 8000
-
-# Node.js (if you have it installed)
-npx serve .
-
-# Then open http://localhost:8000 in your browser
-```
 
 ## 📁 Project Structure
 
@@ -242,22 +231,33 @@ cd architectiq
 - **Accessibility Improvements**: Enhance ARIA labels and keyboard navigation
 
 ## 📊 Roadmap
+Version 2.0 (Q2 2026) — Intelligence & Templates
 
-### Version 2.0 (Q2 2024)
-- [ ] **API Integration**: REST API for programmatic access
-- [ ] **Team Templates**: Pre-configured team profiles
-- [ ] **Industry Models**: Specialized calculations for different industries
-- [ ] **Historical Tracking**: Track decisions and outcomes over time
+[ ] **Dynamic Strategy Triggers**: Move all architectural weights to data_specs.json for easier "Referee" tuning.
 
-### Version 2.1 (Q3 2024)
-- [ ] **Multi-Language Support**: Internationalization
-- [ ] **Advanced Visualizations**: Interactive charts and graphs
-- [ ] **Slack/Teams Integration**: Decision workflows in chat
-- [ ] **PDF Report Generation**: Professional report exports
+[ ] **Industry-Specific Profiles**: Pre-configured templates for FinTech, Healthcare, and E-commerce scaling patterns.
 
-### Version 3.0 (Q4 2024)
-- [ ] **Machine Learning**: Learn from decision outcomes
-- [ ] **Organizational Analytics**: Multi-team analysis
-- [ ] **Compliance Frameworks**: SOC2, GDPR considerations
-- [ ] **Mobile Application**: Native mobile experience
+[ ] **ADR Generation**: Automated export of decisions into "Architectural Decision Record" Markdown files.
+
+[ ] **Historical Benchmarking**: Save previous assessments to track how your "Pivot Point" evolves as your team grows.
+
+Version 2.1 (Q3 2026) — Visuals & Integration
+
+[ ] **Advanced Radar Charts**: Interactive D3.js visualizations comparing Velocity vs. Risk vs. Complexity Tax.
+
+[ ] **Multi-Persona Steering**: Choose between "Security Architect," "Lead Dev," or "CFO" personas for different steering perspectives.
+
+[ ] **GitHub Action Integration:** Automatically check Pull Requests against the project's sustainability rules.
+
+[ ] **PDF Executive Export**: Generation of high-fidelity reports for stakeholder presentations.
+
+Version 3.0 (Q4 2026) — Predictive Analysis
+
+[ ] **Sentiment-Aware Challenges**: Use NLP to detect "hype-driven" language in user defenses and trigger specific challenges.
+
+[ ] **Machine Learning Models**: Predict future "Complexity Tax" based on anonymized historical team performance data.
+
+[ ] **Cloud Cost Live-Sync**: Real-time TCO updates by connecting to AWS/Azure/GCP pricing APIs.
+
+[ ] **Mobile "Referee" App**: Native mobile experience for architectural sanity checks during meetings.
 
