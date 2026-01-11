@@ -1,34 +1,30 @@
-# 🏛️ ArchitectIQ - Senior Technical Architect Decision Engine
+# 🏛️ ArchitectIQ - Mathematical Architecture Referee
 
-> **Mathematical decision-making tool that acts as a Senior Technical Architect, using quantitative analysis to prevent over-engineering and protect business runway.**
+**"I don't pick winners. I prevent disasters through mathematical analysis."**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+ArchitectIQ acts as your impartial architecture referee, using quantitative analysis to facilitate informed architectural decisions and prevent over-engineering disasters.
 
 ## 🎯 What is ArchitectIQ?
 
-ArchitectIQ is a **mathematical decision-making tool** that prevents "Resume-Driven Development" by challenging architectural choices with hard data. It acts as your **Senior Technical Architect**, using the **Pivot Point formula** to determine if your team can sustainably handle your chosen architecture.
+ArchitectIQ is a mathematical decision-making tool that prevents "Resume-Driven Development" by providing objective, data-driven analysis of architectural choices. Unlike traditional advice that picks winners and losers, ArchitectIQ acts as a neutral referee that presents all options with mathematical transparency.
 
-### The Problem It Solves
+### The Problems It Solves
 
 - **Over-engineering**: Teams choosing complex architectures they can't operationally handle
-- **Resume-Driven Development**: Technology choices based on trends rather than business needs
+- **Resume-Driven Development**: Technology choices based on trends rather than business needs  
 - **Runway Burn**: Wasting money on infrastructure complexity instead of product features
 - **Team Burnout**: Overwhelming teams with operational complexity beyond their capability
 
-### The Solution
+### The Referee Solution
 
-ArchitectIQ uses **mathematical analysis** to:
-- Calculate your **Team Complexity Score (TCS)** based on size and experience
-- Assess **Architecture Complexity Index (ACI)** for your chosen architecture
-- Compute the **Pivot Point** ratio to determine sustainability
-- Apply **Complexity Tax** penalties for unsustainable choices
-- Generate **stakeholder-ready reports** with quantifiable recommendations
+ArchitectIQ provides neutral mathematical analysis by:
+- **Calculating Team Complexity Score (TCS)** based on size, experience, and timeline
+- **Assessing Architecture Complexity Index (ACI)** for each architectural option
+- **Computing Pivot Point ratios** to determine mathematical sustainability
+- **Applying Complexity Tax penalties** for unsustainable choices
+- **Ranking all options** by mathematical viability without declaring winners
 
-## 🧮 Core Mathematical Framework
+## ⚖️ The Referee's Mathematical Framework
 
 ### The Pivot Point Formula
 ```
@@ -37,9 +33,9 @@ Pivot Point = Team Complexity Score ÷ Architecture Complexity Index
 
 **Interpretation:**
 - **> 1.5**: Excellent choice, team can handle complexity easily
-- **1.0-1.5**: Good choice, sustainable with monitoring
+- **1.0-1.5**: Good choice, sustainable with monitoring  
 - **0.5-1.0**: Warning zone, complexity tax applies
-- **< 0.5**: Critical zone, aggressive challenge triggered
+- **< 0.5**: Critical zone, mathematical disaster
 
 ### Team Complexity Score (TCS)
 ```
@@ -48,7 +44,7 @@ TCS = TeamSize × ExperienceMultiplier × TimelineFactor
 
 **Experience Multipliers:**
 - Junior (0-2 years): 0.5x
-- Mixed experience: 0.75x
+- Mixed experience: 0.75x  
 - Senior (5+ years): 1.0x
 - Expert/Architect: 1.5x
 
@@ -63,201 +59,186 @@ ACI = BaseComplexity × TimelinePressure × ScaleMultiplier
 - Microservices: 80 units
 - Hybrid: 65 units
 
-## 🚀 Features
+## 🚀 Key Features
 
-### 🎭 Three-Act Decision Process
-1. **Act I: The Interrogation** - Assess team capability and constraints
-2. **Act II: The Stress Test** - Challenge architectural choices with emotional scenarios
-3. **Act III: The Verdict** - Provide mathematical analysis and recommendations
+### � Architecture Scoreboard
+- **Mathematical ranking** of all 4 architectures by sustainability
+- **Real-time Pivot Point calculations** for each option
+- **Visual complexity comparison** showing team capability vs requirements
+- **No winners or losers** - just mathematical facts
 
-### 🧠 Intelligent Personas
-- **Architect** (Authoritative): Mathematical precision for critical decisions
-- **Consultant** (Advisory): Business-focused trade-off analysis
-- **CTO** (Strategic): Organizational impact and scaling concerns
+### 🚨 Referee Warnings
+- **Mathematical Reality Checks** when Pivot Point < 0.5
+- **Specific overload percentages** (e.g., "Your team is 150% overwhelmed")
+- **Team compatibility alerts** for fundamental mismatches
+- **Complexity tax calculations** with financial impact
 
-### 📊 Advanced Analytics
-- **Real-time Pivot Point calculation** with visual feedback
-- **Complexity Tax assessment** with financial penalties
-- **3-year TCO analysis** with team-specific multipliers
-- **Velocity impact predictions** with timeline consequences
+### 📊 Mathematical Visualization
+- **Complexity bars** showing architecture requirements vs team capability
+- **Team capability indicator** overlaid on complexity requirements
+- **Business impact calculator** with reinvestment opportunities
+- **Cost and timeline analysis** for all architectural options
 
-### 🎛️ Interactive What-If Analysis
-- **Dynamic sliders** for team size and timeline adjustments
-- **Real-time recommendation updates** as constraints change
-- **Quantifiable pivot triggers** for future architectural evolution
-
-### 📄 Executive-Ready Reports
-- **Mathematical justification** with specific formulas
-- **Reinvestment arguments** showing alternative uses for cost savings
-- **Phased migration roadmaps** with risk assessments
-- **Quantifiable triggers** for architectural changes
+### 🎯 Referee Verdict
+- **Neutral analysis** without picking winners
+- **Mathematical justification** for all recommendations
+- **Evolution triggers** for when to reconsider architectures
+- **Stakeholder-ready insights** with quantifiable metrics
 
 ## 🛠️ Installation & Setup
 
 ### Quick Start
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/architectiq.git
-   cd architectiq
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/rukaiya14/architectiq.git
+cd architectiq
 
-2. **Open in browser**
-   ```bash
-   # Simply open architectiq.html in your browser
-   open architectiq.html
-   # Or on Windows:
-   start architectiq.html
-   ```
+# Open in browser (no build process required)
+open architectiq-comparison.html
+# Or on Windows: start architectiq-comparison.html
+```
 
-3. **Start analyzing**
-   - Enter your team details
-   - Choose your preferred architecture
-   - Get mathematical analysis and recommendations
-
+### Start Your Analysis
+1. **Enter your team profile** (size, experience, timeline, scale)
+2. **Click "Referee, Analyze All Options"**
+3. **Review the mathematical scoreboard** ranked by sustainability
+4. **Examine complexity visualizations** and business impact
+5. **Make informed decisions** based on quantifiable data
 
 ## 📁 Project Structure
 
 ```
 architectiq/
-├── architectiq.html          # Main application interface
-├── architectiq.js           # Frontend logic and calculations
-├── architectiq.css          # Glassmorphism UI styling
-├── README.md               # This file
-├── .kiro/                  # Configuration and logic
-│   ├── rules.json          # Dealbreaker conditions
-│   ├── data_specs.json     # ACI values and cost models
-│   ├── prompts.yaml        # Persona definitions
-│   ├── architect_logic.py  # Python calculation engine
-│   ├── mathematical_models.md  # Detailed formulas
-│   └── steering/
-│       └── architectiq-guidance.md  # System guidance
+├── architectiq-comparison.html    # Mathematical referee interface
+├── architectiq-comparison.js      # Referee logic and calculations  
+├── architectiq-comparison.css     # Referee visual styling
+├── api/                          # Serverless enhancement functions
+│   ├── calculate.js              # Mathematical analysis API
+│   └── recommend.js              # AI-powered recommendations
+├── .kiro/                        # Configuration and intelligence
+│   ├── rules.json               # Dealbreaker conditions
+│   ├── data_specs.json          # ACI values and cost models
+│   ├── prompts.yaml             # Persona definitions
+│   └── architect_logic.py       # Python calculation engine
+└── README.md                    # This file
 ```
 
 ## 🎮 Usage Examples
 
-### Example 1: Small Team Choosing Microservices
-```
-Input:
+### Example 1: Small Team Mathematical Reality Check
+**Input:**
 - Team: 3 developers, mixed experience
-- Timeline: 6 months
-- Choice: Microservices
+- Timeline: 6 months  
+- Scale: SaaS Product
 
-Analysis:
+**Mathematical Analysis:**
 - TCS = 3 × 0.75 × 1.0 = 2.25
-- ACI = 80 × 1.0 × 1.2 = 96
-- Pivot Point = 2.25 ÷ 96 = 0.023 (CRITICAL)
+- Microservices ACI = 80 × 1.0 × 1.0 = 80
+- Pivot Point = 2.25 ÷ 80 = 0.028 (CRITICAL)
 
-Result: Aggressive challenge with 2.5x complexity tax
-Recommendation: Start with monolith, migrate when team > 8 developers
-```
+**Referee Verdict:** "Your team is 3,456% overwhelmed by microservices complexity"
 
-### Example 2: Experienced Team with Reasonable Timeline
-```
-Input:
-- Team: 8 developers, senior experience
+### Example 2: Experienced Team Sustainable Choice
+**Input:**
+- Team: 12 developers, senior experience
 - Timeline: 12 months
-- Choice: Microservices
+- Scale: Platform/Marketplace
 
-Analysis:
-- TCS = 8 × 1.0 × 1.2 = 9.6
-- ACI = 80 × 0.8 × 1.2 = 76.8
-- Pivot Point = 9.6 ÷ 76.8 = 0.125 (WARNING)
+**Mathematical Analysis:**
+- TCS = 12 × 1.0 × 1.2 = 14.4
+- Microservices ACI = 80 × 0.8 × 1.6 = 102.4  
+- Pivot Point = 14.4 ÷ 102.4 = 0.14 (WARNING)
 
-Result: Moderate challenge with monitoring recommendations
-Recommendation: Proceed with caution, establish success metrics
-```
+**Referee Verdict:** "Proceed with caution - establish success metrics and monitor team velocity"
 
-## 🎯 Key Differentiators
+## 🎯 What Makes ArchitectIQ Unique
 
 ### vs. Traditional Architecture Advice
-- **Quantitative vs. Qualitative**: Uses mathematical formulas instead of opinions
-- **Team-Specific**: Adjusts recommendations based on actual team capability
+- **Mathematical vs. Opinions**: Uses quantifiable formulas instead of subjective advice
+- **Neutral Referee vs. Biased Judge**: Presents all options fairly without picking winners
+- **Team-Specific**: Adjusts analysis based on actual team capability and constraints
 - **Business-Focused**: Considers financial impact and competitive advantage
-- **Actionable**: Provides specific triggers and migration paths
 
-### vs. Generic Decision Frameworks
+### vs. Generic Comparison Tools  
 - **Architecture-Specific**: Designed specifically for technical architecture decisions
-- **Complexity-Aware**: Accounts for operational overhead and team burnout
-- **Persona-Driven**: Adapts communication style based on decision severity
-- **Stakeholder-Ready**: Generates reports suitable for executives and investors
+- **Complexity-Aware**: Accounts for operational overhead and team burnout risk
+- **Mathematical Foundation**: Every recommendation backed by quantifiable analysis
+- **Referee Personality**: Unique voice that prevents disasters through mathematical honesty
 
-## 🧪 Mathematical Validation
+## 🧮 Mathematical Validation
 
 ### Complexity Tax Examples
-```python
-# Critical Zone (Pivot Point < 0.5)
+```javascript
+// Critical Zone (Pivot Point < 0.5)
 complexity_tax = 2.5x
 velocity_impact = -60%
-burnout_timeline = 3 months
+mathematical_overload = "250% overwhelmed"
 
-# Warning Zone (0.5-0.8)
+// Warning Zone (0.5-0.8)  
 complexity_tax = 1.8x
 velocity_impact = -40%
-burnout_timeline = 6 months
+mathematical_overload = "80% overwhelmed"
 
-# Safe Zone (> 1.0)
+// Safe Zone (> 1.0)
 complexity_tax = 1.0x
 velocity_impact = 0%
-burnout_timeline = None
+mathematical_overload = "Sustainable"
 ```
 
-### TCO Comparison (3-Year)
+### TCO Comparison (Annual)
 | Architecture | 3-Dev Team | 8-Dev Team | 15-Dev Team |
-|--------------|------------|------------|-------------|
-| Monolith     | $195K      | $456K      | $702K       |
-| Serverless   | $354K      | $828K      | $1.27M      |
-| Microservices| $625K      | $1.46M     | $2.25M      |
+|-------------|------------|------------|-------------|
+| Monolith    | $180K      | $420K      | $650K       |
+| Serverless  | $240K      | $560K      | $860K       |
+| Microservices| $450K     | $1.05M     | $1.62M      |
+| Hybrid      | $320K      | $750K      | $1.15M      |
+
+## 🌐 Live Demo
+
+**[Try ArchitectIQ Referee →](https://architectiq.vercel.app)**
+
+Experience the mathematical referee in action with your team's actual parameters.
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+We welcome contributions to make the mathematical referee even more accurate and helpful!
 
 ### Development Setup
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/architectiq.git
+# Clone and start developing
+git clone https://github.com/rukaiya14/architectiq.git
 cd architectiq
 
-# No build process required - it's vanilla HTML/CSS/JS!
-# Simply open architectiq.html in your browser to start developing
+# No build process - pure HTML/CSS/JS
+# Edit architectiq-comparison.* files and refresh browser
 ```
 
 ### Areas for Contribution
-- **New Architecture Types**: Add support for additional architectures in `architectiq.js`
-- **Enhanced UI/UX**: Improve the glassmorphism design in `architectiq.css`
-- **Enhanced Personas**: Develop new communication styles
-- **Industry-Specific Models**: Create specialized cost models
-- **Mobile Responsiveness**: Optimize for mobile devices
-- **Accessibility Improvements**: Enhance ARIA labels and keyboard navigation
+- **Enhanced Mathematical Models**: Improve TCS and ACI calculations
+- **New Architecture Types**: Add support for additional architectures  
+- **Industry-Specific Profiles**: Create specialized models for different domains
+- **Improved Visualizations**: Enhance complexity comparison charts
+- **Mobile Optimization**: Better responsive design for mobile referees
 
 ## 📊 Roadmap
-Version 2.0 (Q2 2026) — Intelligence & Templates
 
-[ ] **Dynamic Strategy Triggers**: Move all architectural weights to data_specs.json for easier "Referee" tuning.
+### Version 2.0 - Enhanced Intelligence
+- [ ] **Dynamic Complexity Models**: Industry-specific ACI values
+- [ ] **Historical Tracking**: Monitor team Pivot Point evolution over time
+- [ ] **Advanced Visualizations**: Interactive D3.js complexity charts
+- [ ] **PDF Export**: Executive-ready mathematical analysis reports
 
-[ ] **Industry-Specific Profiles**: Pre-configured templates for FinTech, Healthcare, and E-commerce scaling patterns.
+### Version 2.1 - Integration & Automation  
+- [ ] **GitHub Actions**: Automated architecture sustainability checks
+- [ ] **Slack Bot**: Quick Pivot Point calculations in team channels
+- [ ] **API Endpoints**: Integrate mathematical analysis into other tools
+- [ ] **Mobile App**: Native referee experience for on-the-go analysis
 
-[ ] **ADR Generation**: Automated export of decisions into "Architectural Decision Record" Markdown files.
+---
 
-[ ] **Historical Benchmarking**: Save previous assessments to track how your "Pivot Point" evolves as your team grows.
+**Built for the 6th Kiro Heroes Challenge**
 
-Version 2.1 (Q3 2026) — Visuals & Integration
+*ArchitectIQ: Because your architecture decisions should be based on math, not hype.*
 
-[ ] **Advanced Radar Charts**: Interactive D3.js visualizations comparing Velocity vs. Risk vs. Complexity Tax.
-
-[ ] **Multi-Persona Steering**: Choose between "Security Architect," "Lead Dev," or "CFO" personas for different steering perspectives.
-
-[ ] **GitHub Action Integration:** Automatically check Pull Requests against the project's sustainability rules.
-
-[ ] **PDF Executive Export**: Generation of high-fidelity reports for stakeholder presentations.
-
-Version 3.0 (Q4 2026) — Predictive Analysis
-
-[ ] **Sentiment-Aware Challenges**: Use NLP to detect "hype-driven" language in user defenses and trigger specific challenges.
-
-[ ] **Machine Learning Models**: Predict future "Complexity Tax" based on anonymized historical team performance data.
-
-[ ] **Cloud Cost Live-Sync**: Real-time TCO updates by connecting to AWS/Azure/GCP pricing APIs.
-
-[ ] **Mobile "Referee" App**: Native mobile experience for architectural sanity checks during meetings.
-
+**Live Demo**: [architectiq.vercel.app](https://architectiq.vercel.app)  
+**Repository**: [github.com/rukaiya14/architectiq](https://github.com/rukaiya14/architectiq)
