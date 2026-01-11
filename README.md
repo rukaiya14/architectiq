@@ -1,6 +1,6 @@
 # 🏛️ ArchitectIQ - Mathematical Architecture Referee
 
-**"I don't pick winners. I prevent disasters through mathematical analysis."**
+***I don't recommend architectures. I disqualify unsafe ones.***
 
 ArchitectIQ acts as your impartial architecture referee, using quantitative analysis to facilitate informed architectural decisions and prevent over-engineering disasters.
 
